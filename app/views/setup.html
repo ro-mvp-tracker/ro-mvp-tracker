@@ -1,0 +1,27 @@
+<div class="form-setup-container" ng-controller="SetupCtrl">
+    <form class="form-horizontal form-setup" ng-controller="SettingsCtrl">
+        <div class="form-setup-header" ng-class="isValid() ? 'valid' : 'invalid'"></div>
+        <div class="form-setup-content">
+            <!-- group key-->
+            <div class="form-group">
+                <label class="col-md-12 control-label" for="groupKey">Group Key <small><span class="glyphicon glyphicon-lock"></span></small></label>  
+                <div class="col-md-12">
+                    <input id="groupKey" name="groupKey" type="text" placeholder="" class="form-control input-md" ng-model="setup.groupKey">
+                </div>
+            </div>
+            <!-- name-->
+            <div class="form-group">
+                <label class="col-md-12 control-label" for="name">Name</label>  
+                <div class="col-md-12">
+                    <input id="name" name="name" type="text" placeholder="" class="form-control input-md" ng-model="setup.name">
+                </div>
+            </div>
+            <!-- submit-->
+            <div class="form-group">
+                <div class="col-md-12">
+                    <button name="submit" class="btn btn-default" ng-click="submit()" ng-disabled="!isValid()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

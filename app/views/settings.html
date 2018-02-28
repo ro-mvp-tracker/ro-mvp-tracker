@@ -1,0 +1,36 @@
+<form class="form-horizontal" ng-controller="SettingsCtrl">
+    <!-- group key-->
+    <div class="form-group">
+        <label class="col-md-12 control-label" for="groupKey">Group Key <small><span class="glyphicon glyphicon-lock"></span></small></label>  
+        <div class="col-md-12">
+            <input id="groupKey" name="groupKey" type="text" placeholder="" class="form-control input-md" ng-model="settings.groupKey">
+        </div>
+    </div>
+    <!-- name-->
+    <div class="form-group">
+        <label class="col-md-12 control-label" for="name">Name</label>  
+        <div class="col-md-12">
+            <input id="name" name="name" type="text" placeholder="" class="form-control input-md" ng-model="settings.name">
+        </div>
+    </div>
+    <!-- notification-->
+    <div class="form-group">
+        <label class="col-md-12 control-label" for="">Notification</label>  
+        <div class="col-md-12">
+            <label class="checkbox-inline" for="notification">
+                <input type="checkbox"  id="notification" name="notification" value="1" ng-model="settings.notificationEnabled"> 
+                Notify
+                <span class="form-inline">
+                    <select class="form-control input-xs notification-time" ng-model="settings.notificationTime">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </span>
+                minute(s) before spawn
+            </label>
+        </div>
+    </div>
+</form>
