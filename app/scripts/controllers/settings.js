@@ -1,6 +1,6 @@
 'use strict';
 
-/*globals app */
+/*globals app, Notification */
 
 /**
  * @ngdoc function
@@ -12,12 +12,25 @@
 app.controller('SettingsCtrl', function ($scope, $rootScope, $timeout, $state, $transitions, localStorageService) {
     var init = function() {
         $scope.settingsDropdown = $scope.settingsDropdown || {};
+        $scope.notificationTimeList = [1, 2, 3, 4, 5];
 
         var t;
         $rootScope.$watch('settings', function() {
             $timeout.cancel(t);
             t = $timeout($scope.save, 2000);
         }, true);
+
+        $rootScope.$watch('settings.notificationEnabled', function() {
+            if (Notification && $rootScope.settings.notificationEnabled) {
+                Notification.requestPermission(function (permission) {
+                    if (permission === "granted") {
+                        $rootScope.settings.notificationEnabled = true;
+                    } else {
+                        $rootScope.settings.notificationEnabled = false;
+                    }
+                });
+            }
+        });
 
         $transitions.onSuccess({}, function(event, toState, toParams, fromState, fromParams, options) {
             $scope.checkSettings();
@@ -27,14 +40,14 @@ app.controller('SettingsCtrl', function ($scope, $rootScope, $timeout, $state, $
     };
 
     $scope.load = function() {
-        $rootScope.settings = localStorageService.get('settings');
+        $rootScope.settings = localStorageService.get('settings') || null;
 
         //default settings
-        if (typeof($rootScope.settings) !== 'object') {
+        if (!$rootScope.settings || typeof($rootScope.settings) !== 'object') {
             $rootScope.settings = {
                 groupKey: '',
                 name: '',
-                notificationEnabled: true,
+                notificationEnabled: false,
                 notificationTime: 1
             };
         }

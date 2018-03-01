@@ -21,13 +21,7 @@
                 <input type="checkbox"  id="notification" name="notification" value="1" ng-model="settings.notificationEnabled"> 
                 Notify
                 <span class="form-inline">
-                    <select class="form-control input-xs notification-time" ng-model="settings.notificationTime">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                    <select class="form-control input-xs notification-time" ng-model="settings.notificationTime" ng-options="value*1 for (key, value) in notificationTimeList"></select>
                 </span>
                 minute(s) before spawn
             </label>

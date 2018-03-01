@@ -6,7 +6,12 @@
             <div class="form-group">
                 <label class="col-md-12 control-label" for="groupKey">Group Key <small><span class="glyphicon glyphicon-lock"></span></small></label>  
                 <div class="col-md-12">
-                    <input id="groupKey" name="groupKey" type="text" placeholder="" class="form-control input-md" ng-model="setup.groupKey">
+                    <div class="input-group">
+                        <input id="groupKey" name="groupKey" type="text" placeholder="" class="form-control input-md" ng-model="setup.groupKey">
+                        <span class="input-group-btn">
+                            <span name="groupKeyGenerate" class="btn btn-default" ng-click="generateGroupKey()"><span class="glyphicon glyphicon-refresh"></span></span>
+                        </span>
+                    </div>
                 </div>
             </div>
             <!-- name-->

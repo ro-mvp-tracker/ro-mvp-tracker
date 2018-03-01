@@ -14,7 +14,7 @@ app.service('DataSrv', function () {
 
     service.getMvpList = function() {
         return [{
-            "id": 0,
+            "id": 1511,
             "map": "moc_pryd06",
             "name": "Amon Ra",
             "respawn": {
@@ -23,7 +23,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1096,
             "map": "pay_fild04",
             "name": "Angeling",
             "respawn": {
@@ -32,7 +32,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1096,
             "map": "xmas_dun01",
             "name": "Angeling",
             "respawn": {
@@ -41,7 +41,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1096,
             "map": "yuno_fild03",
             "name": "Angeling",
             "respawn": {
@@ -50,7 +50,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1388,
             "map": "yuno_fild05",
             "name": "Archangeling",
             "respawn": {
@@ -59,7 +59,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1785,
             "map": "ra_fild02",
             "name": "Atroce",
             "respawn": {
@@ -68,7 +68,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1785,
             "map": "ra_fild03",
             "name": "Atroce",
             "respawn": {
@@ -77,7 +77,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1785,
             "map": "ra_fild04",
             "name": "Atroce",
             "respawn": {
@@ -86,7 +86,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1785,
             "map": "ve_fild01",
             "name": "Atroce",
             "respawn": {
@@ -95,7 +95,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1785,
             "map": "ve_fild02",
             "name": "Atroce",
             "respawn": {
@@ -104,7 +104,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1630,
             "map": "lou_dun03",
             "name": "White Lady",
             "respawn": {
@@ -113,7 +113,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1039,
             "map": "prt_maze03",
             "name": "Baphomet",
             "respawn": {
@@ -122,7 +122,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1873,
             "map": "abbey03",
             "name": "Beelzebub",
             "respawn": {
@@ -131,16 +131,61 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1646,
             "map": "lhz_dun03",
-            "name": "Bio3 MVP",
+            "name": "Lord Knight Seyren",
             "respawn": {
                 "min": 6000,
                 "max": 7800,
             }
         },
         {
-            "id": 0,
+            "id": 1647,
+            "map": "lhz_dun03",
+            "name": "Assassin Cross Eremes",
+            "respawn": {
+                "min": 6000,
+                "max": 7800,
+            }
+        },
+        {
+            "id": 1648,
+            "map": "lhz_dun03",
+            "name": "Whitesmith Howard",
+            "respawn": {
+                "min": 6000,
+                "max": 7800,
+            }
+        },
+        {
+            "id": 1649,
+            "map": "lhz_dun03",
+            "name": "High Priest Margaretha",
+            "respawn": {
+                "min": 6000,
+                "max": 7800,
+            }
+        },
+        {
+            "id": 1650,
+            "map": "lhz_dun03",
+            "name": "Sniper Cecil",
+            "respawn": {
+                "min": 6000,
+                "max": 7800,
+            }
+        },
+        {
+            "id": 1651,
+            "map": "lhz_dun03",
+            "name": "High Wizard Kathryne",
+            "respawn": {
+                "min": 6000,
+                "max": 7800,
+            }
+        },
+        {
+            "id": 2068,
             "map": "bra_dun02",
             "name": "Boitata",
             "respawn": {
@@ -149,7 +194,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1272,
             "map": "gld_dun04",
             "name": "Dark Lord",
             "respawn": {
@@ -158,7 +203,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1272,
             "map": "gl_chyard",
             "name": "Dark Lord",
             "respawn": {
@@ -167,7 +212,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1719,
             "map": "abyss_03",
             "name": "Detale",
             "respawn": {
@@ -176,7 +221,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1582,
             "map": "pay_fild04",
             "name": "Deviling",
             "respawn": {
@@ -185,7 +230,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1582,
             "map": "yuno_fild03",
             "name": "Deviling",
             "respawn": {
@@ -194,7 +239,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1046,
             "map": "gef_dun02",
             "name": "Doppelganger",
             "respawn": {
@@ -203,7 +248,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1046,
             "map": "gld_dun02",
             "name": "Doppelganger",
             "respawn": {
@@ -212,7 +257,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1389,
             "map": "gef_dun01",
             "name": "Dracula",
             "respawn": {
@@ -221,7 +266,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1112,
             "map": "treasure02",
             "name": "Drake",
             "respawn": {
@@ -230,7 +275,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1115,
             "map": "gld_dun01",
             "name": "Eddga",
             "respawn": {
@@ -239,7 +284,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1115,
             "map": "pay_fild11",
             "name": "Eddga",
             "respawn": {
@@ -248,7 +293,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1652,
             "map": "lhz_dun02",
             "name": "Egnigem Cenia",
             "respawn": {
@@ -257,7 +302,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1418,
             "map": "gon_dun03",
             "name": "Evil Snake Lord",
             "respawn": {
@@ -266,7 +311,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1871,
             "map": "abbey02",
             "name": "Fallen Bishop Hibram",
             "respawn": {
@@ -275,7 +320,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1252,
             "map": "xmas_fild01",
             "name": "Garm",
             "respawn": {
@@ -284,7 +329,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1120,
             "map": "gld_dun04",
             "name": "Ghostring",
             "respawn": {
@@ -293,7 +338,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1120,
             "map": "pay_fild04",
             "name": "Ghostring",
             "respawn": {
@@ -302,7 +347,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1120,
             "map": "prt_maze03",
             "name": "Ghostring",
             "respawn": {
@@ -311,7 +356,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1120,
             "map": "treasure02",
             "name": "Ghostring",
             "respawn": {
@@ -320,7 +365,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1768,
             "map": "ra_san05",
             "name": "Gloom Under Night",
             "respawn": {
@@ -329,7 +374,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1086,
             "map": "prt_sewb4",
             "name": "Golden Thief Bug",
             "respawn": {
@@ -338,7 +383,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1885,
             "map": "mosk_dun03",
             "name": "Gopinich",
             "respawn": {
@@ -347,7 +392,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1990,
             "map": "man_fild03",
             "name": "Hardrock Mammoth",
             "respawn": {
@@ -356,7 +401,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1832,
             "map": "thor_v03",
             "name": "Ifrit",
             "respawn": {
@@ -365,7 +410,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1492,
             "map": "ama_dun03",
             "name": "Incantation Samurai",
             "respawn": {
@@ -374,7 +419,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1734,
             "map": "kh_dun02",
             "name": "Kiel D-01",
             "respawn": {
@@ -383,7 +428,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 2202,
             "map": "iz_dun05",
             "name": "Kraken",
             "respawn": {
@@ -392,7 +437,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1779,
             "map": "ice_dun03",
             "name": "Ktullanux",
             "respawn": {
@@ -401,7 +446,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1688,
             "map": "ayo_dun02",
             "name": "Lady Tanee",
             "respawn": {
@@ -410,7 +455,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 2156,
             "map": "dew_dun01",
             "name": "Leak",
             "respawn": {
@@ -419,7 +464,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1373,
             "map": "niflheim",
             "name": "Lord of Death",
             "respawn": {
@@ -428,7 +473,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1147,
             "map": "anthell02",
             "name": "Maya",
             "respawn": {
@@ -437,7 +482,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1147,
             "map": "gld_dun03",
             "name": "Maya",
             "respawn": {
@@ -446,7 +491,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1289,
             "map": "anthell01",
             "name": "Maya Purple",
             "respawn": {
@@ -455,7 +500,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1289,
             "map": "gld_dun03",
             "name": "Maya Purple",
             "respawn": {
@@ -464,7 +509,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1059,
             "map": "mjolnir_04",
             "name": "Mistress",
             "respawn": {
@@ -473,7 +518,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1150,
             "map": "pay_dun04",
             "name": "Moonlight Flower",
             "respawn": {
@@ -482,7 +527,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1087,
             "map": "gef_fild02",
             "name": "Orc Hero",
             "respawn": {
@@ -491,7 +536,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1087,
             "map": "gef_fild14",
             "name": "Orc Hero",
             "respawn": {
@@ -500,7 +545,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1190,
             "map": "gef_fild10",
             "name": "Orc Lord",
             "respawn": {
@@ -509,7 +554,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1038,
             "map": "moc_pryd04",
             "name": "Osiris",
             "respawn": {
@@ -518,7 +563,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1157,
             "map": "in_sphinx5",
             "name": "Pharaoh",
             "respawn": {
@@ -527,7 +572,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1159,
             "map": "moc_fild17",
             "name": "Phreeoni",
             "respawn": {
@@ -536,7 +581,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 2165,
             "map": "dic_dun02",
             "name": "Queen Scaraba",
             "respawn": {
@@ -545,7 +590,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1623,
             "map": "ein_dun02",
             "name": "RSX-0806",
             "respawn": {
@@ -554,7 +599,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1251,
             "map": "xmas_dun02",
             "name": "Stormy Knight",
             "respawn": {
@@ -563,7 +608,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1583,
             "map": "beach_dun",
             "name": "Tao Gunka",
             "respawn": {
@@ -572,7 +617,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1583,
             "map": "beach_dun2",
             "name": "Tao Gunka",
             "respawn": {
@@ -581,7 +626,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1583,
             "map": "beach_dun3",
             "name": "Tao Gunka",
             "respawn": {
@@ -590,7 +635,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1991,
             "map": "spl_fild03",
             "name": "Tendrillion",
             "respawn": {
@@ -599,7 +644,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1708,
             "map": "thana_boss",
             "name": "Thanatos",
             "respawn": {
@@ -608,7 +653,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1312,
             "map": "tur_dun04",
             "name": "Turtle General",
             "respawn": {
@@ -617,7 +662,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1751,
             "map": "odin_tem03",
             "name": "Valkyrie Randgris",
             "respawn": {
@@ -626,7 +671,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1685,
             "map": "jupe_core",
             "name": "Vesper",
             "respawn": {
@@ -635,7 +680,7 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 0,
+            "id": 1917,
             "map": "moc_fild22",
             "name": "Wounded Morroc",
             "respawn": {

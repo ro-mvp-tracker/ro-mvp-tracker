@@ -20,7 +20,9 @@ var app = angular.module('roMvpTrackerApp', [
     'firebase',
     'angularMoment',
     'ui.router',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'angular-loading-bar',
+    'angular-web-notification'
 ]);
 
 

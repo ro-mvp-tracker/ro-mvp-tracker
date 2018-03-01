@@ -18,6 +18,12 @@ body {
     margin-bottom: 0;
 }
 
+#loading-bar-spinner {
+    top: 17px !important;
+    right: 65px !important;
+    left: inherit;
+}
+
 .header .dropdown-settings {
     float: right;
     padding: 15px !important;
@@ -76,11 +82,11 @@ body {
 .container {
 }
 
+/* mvpList */
 .mvpList {
     width: 100%;
 }
 
-/* mvpList */
 .mvpList thead {
     font-weight: bold;
 }
@@ -115,6 +121,10 @@ body {
 .mvpList .mvp-name {
     font-size: 15px;
     font-weight: bold;
+    margin-right: 2px;
+}
+
+.mvpList .mvp-database-links {
     margin-right: 5px;
 }
 
