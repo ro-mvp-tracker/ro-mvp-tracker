@@ -9,6 +9,7 @@
  * # mvp
  */
 app.directive('mvp', function ($rootScope, $timeout, firebase, webNotification) {
+    var notifications = {};
     return {
         restrict: 'A',
         scope: {
@@ -17,9 +18,9 @@ app.directive('mvp', function ($rootScope, $timeout, firebase, webNotification) 
         },
         link: function postLink(scope, element, attrs) {
             var t;
-            var notification;
 
             var update = function() {
+                var key = scope.mvp.id + scope.mvp.map;
                 var timestamp = Math.round(new Date().getTime() / 1000);
                 if (scope.mvp && scope.mvp.$track && scope.mvp.$track.time) {
                     var min = Math.round(scope.mvp.respawn.min - (timestamp - scope.mvp.$track.time));
@@ -33,7 +34,7 @@ app.directive('mvp', function ($rootScope, $timeout, firebase, webNotification) 
                         max = min;
                         min = tmp;
                     } else if (min <= notificationTime && $rootScope.settings.notificationEnabled) {
-                        if (notification !== scope.mvp.$track.time) {
+                        if (notifications[key] !== scope.mvp.$track.time) {
                             webNotification.showNotification('Ragnarok MVP Tracker', {
                                 body: scope.mvp.name + ' (' + scope.mvp.map + ') spawns in ' + (Math.round(min / 60)) + ' to ' + (Math.round(max / 60)) + ' minutes',
                                 icon: 'images/mvp.png',
@@ -43,7 +44,7 @@ app.directive('mvp', function ($rootScope, $timeout, firebase, webNotification) 
                                     window.alert('Unable to show notification: ' + error.message);
                                 }
                             });
-                            notification = scope.mvp.$track.time;
+                            notifications[key] = scope.mvp.$track.time;
                         }
                     }
 
@@ -52,7 +53,6 @@ app.directive('mvp', function ($rootScope, $timeout, firebase, webNotification) 
                     scope.mvp.$track.$respawn.max = max;
 
                     if ((-1 * max) > (scope.mvp.respawn.max * 1.0)) {
-                        var key = scope.mvp.id + scope.mvp.map;
                         var ref = firebase.database().ref().child('tracks/' + $rootScope.settings.group + '/' + key);
                         ref.remove();
                         scope.mvp.$track = {};
@@ -64,6 +64,10 @@ app.directive('mvp', function ($rootScope, $timeout, firebase, webNotification) 
             };
 
             scope.$watchGroup(['mvp.$track'], update);
+
+            scope.$on('$destroy', function() {
+                $timeout.cancel(t);
+            });
 
             update();
         }
