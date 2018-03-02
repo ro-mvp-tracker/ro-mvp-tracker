@@ -14,7 +14,7 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
     var unbind;
 
     var init = function() {
-        $rootScope.$watch('settings.groupKey', function(newValue, oldValue) {
+        $rootScope.$watch('settings.group', function(newValue, oldValue) {
             $timeout.cancel(t);
             if (newValue !== oldValue) {
                 t = $timeout($scope.getTrackList, 2500);
@@ -46,12 +46,12 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
     };
 
     $scope.getTrackList = function() {
-        if ($rootScope.settings.groupKey) {
+        if ($rootScope.settings.group) {
             if (unbind) {
                 unbind();
             }
 
-            var ref = firebase.database().ref().child('tracks/' + $rootScope.settings.groupKey);
+            var ref = firebase.database().ref().child('tracks/' + $rootScope.settings.group);
             var obj = $firebaseObject(ref);
 
             $scope.trackListRef = ref;
@@ -79,7 +79,7 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
         $scope.trackList[key] = {
             id: mvp.id,
             map: mvp.map,
-            name: 'mau',
+            name: $rootScope.settings.name,
             time: timestamp - ago
         };
     };
@@ -88,7 +88,7 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
         var r = window.confirm("Do you want to remove this entry?");
         if (r) {
             var key = mvp.id + mvp.map;
-            var ref = firebase.database().ref().child('tracks/' + $rootScope.settings.groupKey + '/' + key);
+            var ref = firebase.database().ref().child('tracks/' + $rootScope.settings.group + '/' + key);
             ref.remove();
             mvp.$track = {};
         }

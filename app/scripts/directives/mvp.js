@@ -32,7 +32,7 @@ app.directive('mvp', function ($rootScope, $timeout, firebase, webNotification) 
                         var tmp = max;
                         max = min;
                         min = tmp;
-                    } else if (min <= notificationTime) {
+                    } else if (min <= notificationTime && $rootScope.settings.notificationEnabled) {
                         if (notification !== scope.mvp.$track.time) {
                             webNotification.showNotification('Ragnarok MVP Tracker', {
                                 body: scope.mvp.name + ' (' + scope.mvp.map + ') spawns in ' + (Math.round(min / 60)) + ' to ' + (Math.round(max / 60)) + ' minutes',
@@ -53,7 +53,7 @@ app.directive('mvp', function ($rootScope, $timeout, firebase, webNotification) 
 
                     if ((-1 * max) > (scope.mvp.respawn.max * 1.0)) {
                         var key = scope.mvp.id + scope.mvp.map;
-                        var ref = firebase.database().ref().child('tracks/' + $rootScope.settings.groupKey + '/' + key);
+                        var ref = firebase.database().ref().child('tracks/' + $rootScope.settings.group + '/' + key);
                         ref.remove();
                         scope.mvp.$track = {};
                     }

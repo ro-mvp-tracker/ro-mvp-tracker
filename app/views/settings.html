@@ -1,9 +1,23 @@
 <form class="form-horizontal" ng-controller="SettingsCtrl">
-    <!-- group key-->
+    <!-- authentication key-->
     <div class="form-group">
-        <label class="col-md-12 control-label" for="groupKey">Group Key <small><span class="glyphicon glyphicon-lock"></span></small></label>  
+        <label class="col-md-12 control-label" for="authKey">Authentication Key <small><span class="glyphicon glyphicon-lock"></span></small></label>   
         <div class="col-md-12">
-            <input id="groupKey" name="groupKey" type="text" placeholder="" class="form-control input-md" ng-model="settings.groupKey">
+            <div class="input-group">
+                <input id="authKey" name="authKey" type="text" placeholder="" class="form-control input-md" ng-model="settings.authKey">
+                <span class="input-group-btn">
+                    <span name="auth" class="btn btn-default" ng-class="settings.$authenticated ? 'btn-success' : 'btn-danger'">
+                        <span class="glyphicon" ng-class="settings.$authenticated ? 'glyphicon-ok' : 'glyphicon-remove'"></span>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- group-->
+    <div class="form-group">
+        <label class="col-md-12 control-label" for="group">Group</label>  
+        <div class="col-md-12">
+            <input id="group" name="group" type="text" placeholder="" class="form-control input-md" ng-model="settings.group">
         </div>
     </div>
     <!-- name-->
