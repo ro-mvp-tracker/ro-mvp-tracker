@@ -14,10 +14,10 @@ app.controller('SettingsCtrl', function ($scope, $rootScope, $timeout, $state, $
         $scope.settingsDropdown = $scope.settingsDropdown || {};
         $scope.notificationTimeList = [1, 2, 3, 4, 5];
 
-        var t;
+        var t1;
         $rootScope.$watch('settings', function() {
-            $timeout.cancel(t);
-            t = $timeout($scope.save, 2000);
+            $timeout.cancel(t1);
+            t1 = $timeout($scope.save, 2000);
         }, true);
 
         $rootScope.$watch('settings.notificationEnabled', function() {
@@ -32,17 +32,14 @@ app.controller('SettingsCtrl', function ($scope, $rootScope, $timeout, $state, $
             }
         });
 
+        var t2;
         $rootScope.$watch('settings.authKey', function() {
-            $scope.authenticate();
-        });
-
-        $rootScope.$watch('settings.authKey', function() {
-            $scope.authenticate();
+            $timeout.cancel(t2);
+            t2 = $timeout($scope.authenticate, 2000);
         });
 
         var retauthenticate = false;
         $firebaseAuth().$onAuthStateChanged(function(user) {
-            console.log('!!!!!!!!!!', user);
             if (user) {
                 $scope.settings.$authenticated = true;
                 retauthenticate = false;
@@ -55,11 +52,8 @@ app.controller('SettingsCtrl', function ($scope, $rootScope, $timeout, $state, $
             }
         });
 
-        $transitions.onSuccess({}, function(event, toState, toParams, fromState, fromParams, options) {
-            $scope.checkSettings();
-        });
-
         $scope.load();
+        $scope.authenticate();
     };
 
     $scope.load = function() {
@@ -74,35 +68,36 @@ app.controller('SettingsCtrl', function ($scope, $rootScope, $timeout, $state, $
                 notificationEnabled: false,
                 notificationTime: 1
             };
+
+            $scope.settingsDropdown.open = true;
         }
+
+        $scope.settings.$authenticated = false;
     };
 
     $scope.save = function() {
         localStorageService.set('settings', $rootScope.settings);
-
-        $scope.checkSettings();
     };
 
     $scope.authenticate = function() {
-        console.log('authenticate');
         var email = 'ro.mvp.tracker@gmx.de';
         $firebaseAuth().$signInWithEmailAndPassword(email, $rootScope.settings.authKey)
         .then(function(res) {
-            console.log('->ok', res);
             $rootScope.settings.$authenticated = true;
         })
         .catch(function(error) {
-            console.log('->error', error);
             $rootScope.settings.$authenticated = false;
         });
     };
 
-    $scope.checkSettings = function() {
-        if (!$rootScope.settings.authKey || !$rootScope.settings.group || !$rootScope.settings.name) {
-            $state.go('setup');
-            $scope.settingsDropdown.open = false;
+    $rootScope.isValidSettings = function() {
+        if (!$rootScope.settings.$authenticated || 
+            !$rootScope.settings.authKey || 
+            !$rootScope.settings.group || 
+            !$rootScope.settings.name) {
+            return false;
         } else {
-            $state.go('mvp');
+            return true;
         }
     };
 

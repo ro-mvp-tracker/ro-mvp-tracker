@@ -29,6 +29,14 @@ body {
     padding: 15px !important;
 }
 
+.header .dropdown-settings.invalid > a {
+    color: #a94442 !important;
+}
+
+.header .dropdown-settings .form-group.invalid input {
+    border-color: #a94442;
+}
+
 .header .dropdown-settings.open,
 .header .dropdown-settings.open:focus,
 .header .dropdown-settings.open:hover {
@@ -82,29 +90,29 @@ body {
 .container {
 }
 
-/* mvpList */
-.mvpList {
+/* mvp-list */
+.mvp-list {
     width: 100%;
 }
 
-.mvpList thead {
+.mvp-list thead {
     font-weight: bold;
 }
 
-.mvpList td {
+.mvp-list td {
     vertical-align: middle !important;
     padding: 5px;
 }
 
-.mvpList .group-track {
+.mvp-list .group-track {
     width: 96px;
 }
 
-.mvpList .group-track input {
+.mvp-list .group-track input {
     padding-right: 30px;
 }
 
-.mvpList .group-track .ago {
+.mvp-list .group-track .ago {
     position: absolute;
     font-size: 0.8em;
     line-height: 1.05em;
@@ -113,18 +121,18 @@ body {
     z-index: 99;
     pointer-events: none;
 }
-.mvpList .group-track .ago::after {
+.mvp-list .group-track .ago::after {
     content: "min. \A ago";
     white-space: pre;
 }
 
-.mvpList .mvp-name {
+.mvp-list .mvp-name {
     font-size: 15px;
     font-weight: bold;
     margin-right: 2px;
 }
 
-.mvpList .mvp-database-links {
+.mvp-list .mvp-database-links {
     margin-right: 5px;
 }
 
@@ -135,39 +143,4 @@ body {
 .mvp-filter .rounded {
     border-top-right-radius: 4px !important;
     border-bottom-right-radius: 4px !important;
-}
-
-/* form-setup */
-.form-setup-container {
-    width: 100%;
-    margin-top: 50px;
-}
-
-.form-setup {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    background-color: #fff;
-    border-radius: 2px;
-    max-width: 350px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.form-setup .form-setup-header {
-    height: 4px;
-}
-
-.form-setup .form-setup-header.valid {
-    background-color: #5cb85c;
-}
-
-.form-setup .form-setup-header.invalid {
-    background-color: #a94442;
-}
-
-.form-setup .form-setup-content {
-    padding: 15px;
-}
-
-.form-setup .control-label {
-    text-align: left !important;
 }

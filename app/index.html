@@ -23,7 +23,7 @@
         <div class="navbar navbar-default" role="navigation">
             <div class="container-fluid container">
                 <a class="navbar-brand" href="#">Ragnarok MVP Tracker</a>
-                <span class="dropdown-settings" is-open="settingsDropdown.open" uib-dropdown>
+                <span class="dropdown-settings" ng-class="!isValidSettings() ? 'invalid' : ''" is-open="settingsDropdown.open" uib-dropdown>
                     <a href="javascript:void(0);" class="dropdown-toggle" role="button" uib-dropdown-toggle>
                         <span class="glyphicon glyphicon-cog"></span>
                     </a>
@@ -92,7 +92,6 @@
     <script src="scripts/controllers/settings.js"></script>
     <script src="scripts/services/data.js"></script>
     <script src="scripts/directives/mvp.js"></script>
-    <script src="scripts/controllers/setup.js"></script>
     <script src="scripts/filters/ceil.js"></script>
     <!-- endbuild -->
 </body>

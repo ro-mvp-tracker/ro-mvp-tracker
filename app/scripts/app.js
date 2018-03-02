@@ -34,11 +34,6 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
         templateUrl: 'views/mvp.html'
     });
 
-    $stateProvider.state('setup', {
-        url: '/setup',
-        templateUrl: 'views/setup.html'
-    });
-
     $urlRouterProvider.otherwise('/');
 });
 

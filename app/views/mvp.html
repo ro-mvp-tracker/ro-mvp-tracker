@@ -1,4 +1,4 @@
-<div ng-controller="MvpCtrl">
+<div ng-controller="MvpCtrl" ng-if="isValidSettings()">
     <div class="input-group mvp-filter pull-right">
         <input type="text" class="form-control form-control-sm" placeholder="Search" ng-class="{'rounded': !mvpFilter}" ng-model="mvpFilter">
         <span class="input-group-btn" ng-show="mvpFilter">
@@ -7,7 +7,7 @@
             </button>
         </span>
     </div>
-    <table class="table table-striped mvpList">
+    <table class="table table-striped mvp-list">
         <thead>
             <tr>
                 <td width="30%">MVP</td>
