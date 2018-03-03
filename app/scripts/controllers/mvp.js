@@ -65,17 +65,28 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
     };
 
     $scope.orderTrackList = function(a) {
+        a.$track.$highlight = '';
+
         //no track
         if (!a.$track || !a.$track.$respawn) {
+            a.$track.$highlight = '';
             return Number.MAX_SAFE_INTEGER;
         }
 
         //staled track
         if (a.$track.$respawn.min < 0 && a.$track.$respawn.max < 0 && -1 * a.$track.$respawn.min > 1800) {
+            a.$track.$highlight = 'stale';
             return -a.$track.$respawn.min;
         }
 
-        //near spawn time
+        if (a.$track.$respawn.min > 0 && a.$track.$respawn.min <= 300) {
+            a.$track.$highlight = 'warning';
+        } else if (a.$track.$respawn.min > 0) {
+            a.$track.$highlight = '';
+        } else {
+            a.$track.$highlight = 'danger';
+        }
+
         return Number.MIN_SAFE_INTEGER + a.$track.$respawn.min;
     };
 

@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="mvp in (mvpList | filter:mvpFilter | orderBy:orderTrackList)" ng-class="{'warning': mvp.$track.$respawn && mvp.$track.$respawn.min <= 300 && mvp.$track.$respawn.min > 0, 'danger': mvp.$track.$respawn && mvp.$track.$respawn.min <= 0 && (-1 * mvp.$track.$respawn.min < 1800 || mvp.$track.$respawn.max > 0), 'stale': mvp.$track.$respawn && mvp.$track.$respawn.min <= 0 && !(-1 * mvp.$track.$respawn.min < 1800 || mvp.$track.$respawn.max > 0)}">
+            <tr ng-repeat="mvp in (mvpList | filter:mvpFilter | orderBy:orderTrackList)" ng-class="mvp.$track.$highlight">
                 <td>
                     <div>
                         <span class="mvp-name"><a href="https://panel.talonro.com/mobdb/{{mvp.id}}/" target="_blank">{{mvp.name}}</a></span>
