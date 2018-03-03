@@ -1,6 +1,6 @@
 <div ng-controller="MvpCtrl" ng-if="isValidSettings()">
     <div class="input-group mvp-filter pull-right">
-        <input type="text" class="form-control form-control-sm" placeholder="Search" ng-class="{'rounded': !mvpFilter}" ng-model="mvpFilter">
+        <input id="mvpFilter" type="text" class="form-control form-control-sm" placeholder="Search" ng-class="{'rounded': !mvpFilter}" ng-model="mvpFilter">
         <span class="input-group-btn" ng-show="mvpFilter">
             <button class="btn btn-default" type="button" ng-click="mvpFilter=''">
                 <span class="glyphicon glyphicon-remove"></span>

@@ -1,6 +1,6 @@
 'use strict';
 
-/*globals app */
+/*globals app, angular, window */
 
 /**
  * @ngdoc function
@@ -34,6 +34,23 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
                         mvp.$track = track || {};
                     }
                 }
+            }
+        });
+
+        angular.element(window).bind('keyup', function($event) {
+            if ($event.keyCode === 17 /* ctrl */) {
+                $scope.ctrlDown = false;
+            }
+        });
+
+        angular.element(window).bind('keydown', function($event) {
+            if ($event.keyCode === 17 /* ctrl */) {
+                $scope.ctrlDown = true;
+            }
+
+            if ($scope.ctrlDown && ($event.keyCode === 70 /* f */)) {
+                $event.preventDefault();
+                angular.element('#mvpFilter').focus();
             }
         });
 
