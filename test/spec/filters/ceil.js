@@ -11,9 +11,4 @@ describe('Filter: ceil', function () {
     ceil = $filter('ceil');
   }));
 
-  it('should return the input prefixed with "ceil filter:"', function () {
-    var text = 'angularjs';
-    expect(ceil(text)).toBe('ceil filter: ' + text);
-  });
-
 });
