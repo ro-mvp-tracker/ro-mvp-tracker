@@ -104,6 +104,10 @@ body {
     padding: 5px;
 }
 
+.mvp-list tr.stale {
+    background-color: #f2dede !important;
+}
+
 .mvp-list .group-track {
     width: 96px;
 }
