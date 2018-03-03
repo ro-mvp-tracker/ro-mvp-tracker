@@ -581,9 +581,18 @@ app.service('DataSrv', function () {
             }
         },
         {
-            "id": 2165,
+            "id": 2087,
             "map": "dic_dun02",
             "name": "Queen Scaraba",
+            "respawn": {
+                "min": 7200,
+                "max": 7260,
+            }
+        },
+        {
+            "id": 2165,
+            "map": "dic_dun03",
+            "name": "Gold Queen Scaraba",
             "respawn": {
                 "min": 7200,
                 "max": 7260,
