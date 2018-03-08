@@ -9,7 +9,7 @@
  * # MvpCtrl
  * Controller of the roMvpTrackerApp
  */
-app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSrv, firebase, $firebaseObject, webNotification) {
+app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSrv, firebase, $firebaseObject, webNotification, time) {
     var t;
     var unbind;
 
@@ -60,15 +60,22 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
         });
 
         $scope.mvpList = DataSrv.getMvpList();
-        $scope.getTrackList();
-        $scope.update();
+
+        time.sync().then(function() {
+            $scope.getTrackList();
+            $scope.update();
+        });
     };
 
     $scope.orderTrackList = function(a) {
+        if (!a || typeof(a) !== 'object' || !a.$track) {
+            return;
+        }
+
         a.$track.$highlight = '';
 
         //no track
-        if (!a.$track || !a.$track.$respawn) {
+        if (!a.$track.$respawn) {
             a.$track.$highlight = '';
             return Number.MAX_SAFE_INTEGER;
         }
@@ -118,8 +125,13 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
     };
 
     $scope.setTrack = function(mvp, ago) {
+        if (!time.isSynced()) {
+            window.alert('Can\'t set track. Time not synchronized. Please reload the page.');
+            return;
+        }
+
         var key = mvp.id + mvp.map;
-        var timestamp = Math.round(new Date().getTime() / 1000);
+        var timestamp = time.unix();
         ago = ago || 0;
         $scope.trackList[key] = {
             id: mvp.id,
@@ -140,47 +152,48 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
     };
 
     $scope.update = function() {
-        var timestamp = Math.round(new Date().getTime() / 1000);
-
-        var notificationError = function onShow(error, hide) {
-            if (error) {
-                window.alert('Unable to show notification: ' + error.message);
-            }
-        };
-
-        for (var i = 0; i < $scope.mvpList.length; i++) {
-            var mvp = $scope.mvpList[i];
-            var key = mvp.id + mvp.map;
-            if (mvp && mvp.$track && mvp.$track.time) {
-                var min = Math.round(mvp.respawn.min - (timestamp - mvp.$track.time));
-                var max = Math.round(mvp.respawn.max - (timestamp - mvp.$track.time));
-
-                mvp.$state = false;
-                var notificationTime = ($rootScope.settings.notificationTime || 0) * 60;
-                if (min <= 0 && max <= 0) {
-                    mvp.$state = true;
-                    var tmp = max;
-                    max = min;
-                    min = tmp;
-                } else if (min <= notificationTime && $rootScope.settings.notificationEnabled) {
-                    if ($scope.notifications[key] !== mvp.$track.time) {
-                        webNotification.showNotification('Ragnarok MVP Tracker', {
-                            body: mvp.name + ' (' + mvp.map + ') spawns in ' + (Math.round(min / 60)) + ' to ' + (Math.round(max / 60)) + ' minutes',
-                            icon: 'images/mvp.png',
-                            autoClose: 30000
-                        }, notificationError);
-                        $scope.notifications[key] = mvp.$track.time;
-                    }
+        var timestamp = time.unix();
+        if (time.isSynced()) {
+            var notificationError = function onShow(error, hide) {
+                if (error) {
+                    window.alert('Unable to show notification: ' + error.message);
                 }
+            };
 
-                mvp.$track.$respawn = mvp.$track.$respawn || {};
-                mvp.$track.$respawn.min = min;
-                mvp.$track.$respawn.max = max;
+            for (var i = 0; i < $scope.mvpList.length; i++) {
+                var mvp = $scope.mvpList[i];
+                var key = mvp.id + mvp.map;
+                if (mvp && mvp.$track && mvp.$track.time) {
+                    var min = Math.round(mvp.respawn.min - (timestamp - mvp.$track.time));
+                    var max = Math.round(mvp.respawn.max - (timestamp - mvp.$track.time));
 
-                if ((-1 * max) > (mvp.respawn.max * 3.2)) {
-                    var ref = firebase.database().ref().child('tracks/' + $rootScope.settings.group + '/' + key);
-                    ref.remove();
-                    mvp.$track = {};
+                    mvp.$state = false;
+                    var notificationTime = ($rootScope.settings.notificationTime || 0) * 60;
+                    if (min <= 0 && max <= 0) {
+                        mvp.$state = true;
+                        var tmp = max;
+                        max = min;
+                        min = tmp;
+                    } else if (min <= notificationTime && $rootScope.settings.notificationEnabled) {
+                        if ($scope.notifications[key] !== mvp.$track.time) {
+                            webNotification.showNotification('Ragnarok MVP Tracker', {
+                                body: mvp.name + ' (' + mvp.map + ') spawns in ' + (Math.round(min / 60)) + ' to ' + (Math.round(max / 60)) + ' minutes',
+                                icon: 'images/mvp.png',
+                                autoClose: 30000
+                            }, notificationError);
+                            $scope.notifications[key] = mvp.$track.time;
+                        }
+                    }
+
+                    mvp.$track.$respawn = mvp.$track.$respawn || {};
+                    mvp.$track.$respawn.min = min;
+                    mvp.$track.$respawn.max = max;
+
+                    if ((-1 * max) > (mvp.respawn.max * 3.2)) {
+                        var ref = firebase.database().ref().child('tracks/' + $rootScope.settings.group + '/' + key);
+                        ref.remove();
+                        mvp.$track = {};
+                    }
                 }
             }
         }
