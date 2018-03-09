@@ -34,6 +34,17 @@
                         </li>
                     </ul>
                 </span>
+                <span class="dropdown-users" ng-class="!isValidSettings() ? 'invalid' : ''" is-open="usersDropdown.open" uib-dropdown>
+                    <a href="javascript:void(0);" class="dropdown-toggle" role="button" uib-dropdown-toggle>
+                        <span class="glyphicon glyphicon-user"></span>
+                    </a>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                        <li class="dropdown-users-content" ng-click="$event.stopPropagation();">
+                            <div ng-include="'views/users.html'"></div>
+                        </li>
+                    </ul>
+                </span>
             </div>
         </div>
     </div>
@@ -93,6 +104,7 @@
     <script src="scripts/services/data.js"></script>
     <script src="scripts/filters/ceil.js"></script>
     <script src="scripts/services/time.js"></script>
+    <script src="scripts/controllers/users.js"></script>
     <!-- endbuild -->
 </body>
 </html>

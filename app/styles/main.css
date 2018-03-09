@@ -24,6 +24,49 @@ body {
     left: inherit;
 }
 
+/* dropdown-users */
+.header .dropdown-users {
+    float: right;
+    padding: 15px !important;
+}
+
+.header .dropdown-users.open,
+.header .dropdown-users.open:focus,
+.header .dropdown-users.open:hover {
+    color: #555 !important;
+    background-color: #e7e7e7 !important;
+    padding: 15px !important;
+}
+
+.header .dropdown-users > a {
+    color: #777;
+}
+
+.header .dropdown-users.open > a {
+    color: #555;
+}
+
+.header .dropdown-users-content {
+    width: 200px;
+    padding: 10px;
+}
+
+.header .dropdown-users-content .header {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.header .dropdown-users-content .user {
+    margin-bottom: 2px;
+}
+
+.header .dropdown-users-content .glyphicon-dot:before {
+    content: "\26AB";
+    color: #00ad00;
+    margin-right: 3px;
+}
+
+/* dropdown-settings */
 .header .dropdown-settings {
     float: right;
     padding: 15px !important;

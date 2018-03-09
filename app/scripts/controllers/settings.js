@@ -41,10 +41,12 @@ app.controller('SettingsCtrl', function ($scope, $rootScope, $timeout, $state, $
         var retauthenticate = false;
         $firebaseAuth().$onAuthStateChanged(function(user) {
             if (user) {
-                $scope.settings.$authenticated = true;
+                $rootScope.settings.$user = user;
+                $rootScope.settings.$authenticated = true;
                 retauthenticate = false;
             } else {
-                $scope.settings.$authenticated = false;
+                $rootScope.settings.$user = null;
+                $rootScope.settings.$authenticated = false;
                 if (!retauthenticate) {
                     retauthenticate = true;
                     $scope.authenticate();
@@ -72,7 +74,7 @@ app.controller('SettingsCtrl', function ($scope, $rootScope, $timeout, $state, $
             $scope.settingsDropdown.open = true;
         }
 
-        $scope.settings.$authenticated = false;
+        $rootScope.settings.$authenticated = false;
     };
 
     $scope.save = function() {

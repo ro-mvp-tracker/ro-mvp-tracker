@@ -1,0 +1,6 @@
+<div ng-controller="UsersCtrl">
+    <div class="header">Users Online</div>
+    <div ng-repeat="(uid, user) in usersList" class="user">
+        <span class="glyphicon glyphicon-dot"></span><span>{{user.name}}</span>
+    </div>
+</div>
