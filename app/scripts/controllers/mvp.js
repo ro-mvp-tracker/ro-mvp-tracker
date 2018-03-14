@@ -9,7 +9,7 @@
  * # MvpCtrl
  * Controller of the roMvpTrackerApp
  */
-app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSrv, firebase, $firebaseObject, webNotification, time) {
+app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSrv, webNotification, time) {
     var t;
     var unbind;
 
@@ -21,6 +21,12 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
             $timeout.cancel(t);
             if (newValue !== oldValue) {
                 t = $timeout($scope.getTrackList, 2500);
+            }
+        });
+
+        $rootScope.$watchGroup(['login.authenticating', 'login.authenticated'], function(newValue, oldValue) {
+            if ($rootScope.login.authenticating === false && $rootScope.login.authenticated === false) {
+                $state.go('login');
             }
         });
 
@@ -55,7 +61,8 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
 
             if ($scope.ctrlDown && ($event.keyCode === 70 /* f */)) {
                 $event.preventDefault();
-                angular.element('#mvpFilter').focus();
+                angular.element('#mvpFilter').select();
+                window.scrollTo(0, 0);
             }
         });
 
@@ -65,6 +72,10 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
             $scope.getTrackList();
             $scope.update();
         });
+
+        $timeout(function() {
+            $scope.initialized = true;
+        }, 1500);
     };
 
     $scope.orderTrackList = function(a) {
@@ -103,13 +114,9 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
                 unbind();
             }
 
-            var ref = firebase.database().ref().child('tracks/' + $rootScope.settings.group);
-            var obj = $firebaseObject(ref);
+            $scope.trackList = DataSrv.getObj('tracks/' + $rootScope.settings.group);
 
-            $scope.trackListRef = ref;
-            $scope.trackList = obj;
-
-            obj.$bindTo($scope, "trackList").then(function(ub) {
+            $scope.trackList.$bindTo($scope, "trackList").then(function(ub) {
                 unbind = ub;
             });
         }
@@ -136,7 +143,7 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
         $scope.trackList[key] = {
             id: mvp.id,
             map: mvp.map,
-            name: $rootScope.settings.name,
+            name: $rootScope.login.userData.username || '',
             time: timestamp - ago
         };
     };
@@ -145,10 +152,14 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
         var r = window.confirm("Do you want to remove this entry?");
         if (r) {
             var key = mvp.id + mvp.map;
-            var ref = firebase.database().ref().child('tracks/' + $rootScope.settings.group + '/' + key);
+            var ref = DataSrv.get('tracks/' + $rootScope.settings.group + '/' + key);
             ref.remove();
             mvp.$track = {};
         }
+    };
+
+    $scope.isValid = function() {
+        return $scope.login.authenticated && $scope.login.userData.activated && $scope.login.userData.username && $scope.settings.group;
     };
 
     $scope.update = function() {
@@ -160,26 +171,30 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
                 }
             };
 
+            //iterate over mvpList
             for (var i = 0; i < $scope.mvpList.length; i++) {
                 var mvp = $scope.mvpList[i];
                 var key = mvp.id + mvp.map;
+                //mvp is tracked?
                 if (mvp && mvp.$track && mvp.$track.time) {
                     var min = Math.round(mvp.respawn.min - (timestamp - mvp.$track.time));
                     var max = Math.round(mvp.respawn.max - (timestamp - mvp.$track.time));
 
                     mvp.$state = false;
                     var notificationTime = ($rootScope.settings.notificationTime || 0) * 60;
+                    //old time?
                     if (min <= 0 && max <= 0) {
                         mvp.$state = true;
                         var tmp = max;
                         max = min;
                         min = tmp;
-                    } else if (min <= notificationTime && $rootScope.settings.notificationEnabled) {
+                    }
+                    //spawn soon and notify user?
+                    else if (min <= notificationTime && $rootScope.settings.notificationEnabled) {
                         if ($scope.notifications[key] !== mvp.$track.time) {
                             webNotification.showNotification('Ragnarok MVP Tracker', {
                                 body: mvp.name + ' (' + mvp.map + ') spawns in ' + (Math.round(min / 60)) + ' to ' + (Math.round(max / 60)) + ' minutes',
-                                icon: 'images/mvp.png',
-                                autoClose: 30000
+                                icon: 'images/mvp.png',                                autoClose: 30000
                             }, notificationError);
                             $scope.notifications[key] = mvp.$track.time;
                         }
@@ -189,8 +204,9 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
                     mvp.$track.$respawn.min = min;
                     mvp.$track.$respawn.max = max;
 
+                    //remove old tracks
                     if ((-1 * max) > (mvp.respawn.max * 3.2)) {
-                        var ref = firebase.database().ref().child('tracks/' + $rootScope.settings.group + '/' + key);
+                        var ref = DataSrv.get('tracks/' + $rootScope.settings.group + '/' + key);
                         ref.remove();
                         mvp.$track = {};
                     }

@@ -1,6 +1,6 @@
-<div ng-controller="UsersCtrl">
+<div>
     <div class="header">Users Online</div>
-    <div ng-repeat="(uid, user) in usersList" class="user">
-        <span class="glyphicon glyphicon-dot"></span><span>{{user.name}}</span>
+    <div ng-repeat="(uid, user) in usersOnline | orderBy:'username'" class="user">
+        <i class="fas fa-circle fa-xs"></i><span class="username">{{user.username || user.$uid}}</span>
     </div>
 </div>

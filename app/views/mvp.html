@@ -1,70 +1,83 @@
-<div ng-controller="MvpCtrl" ng-if="isValidSettings()">
-    <div class="input-group mvp-filter pull-right">
-        <input id="mvpFilter" type="text" class="form-control form-control-sm" placeholder="Search" ng-class="{'rounded': !mvpFilter}" ng-model="mvpFilter">
-        <span class="input-group-btn" ng-show="mvpFilter">
-            <button class="btn btn-default" type="button" ng-click="mvpFilter=''">
-                <span class="glyphicon glyphicon-remove"></span>
-            </button>
-        </span>
+<div ng-controller="MvpCtrl" ng-ifs="initialized">
+    <div ng-if="login.authenticated">
+        <div class="alert alert-danger animate-out-hide animated fadeIn" ng-if="!login.userData.activated">
+            <strong>Authentication Error!</strong> Your account is waiting for activation by a moderator.
+        </div>
+        <div class="alert alert-danger animate-out-hide animated fadeIn" ng-if="!login.userData.username">
+            <strong>Settings Error!</strong> Please set a display name in the settings.
+        </div>
+        <div class="alert alert-danger animate-out-hide animated fadeIn" ng-if="!settings.group">
+            <strong>Settings Error!</strong> Please set a tracker group in the settings.
+        </div>
     </div>
-    <table class="table table-striped mvp-list">
-        <thead>
-            <tr>
-                <td width="30%">MVP</td>
-                <td width="50%">Spawn Time</td>
-                <td width="20%">Update</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="mvp in (mvpList | filter:mvpFilter | orderBy:orderTrackList)" ng-class="mvp.$track.$highlight">
-                <td>
-                    <div>
-                        <span class="mvp-name"><a href="https://panel.talonro.com/mobdb/{{mvp.id}}/" target="_blank">{{mvp.name}}</a></span>
-                        <small>(<a href="http://ratemyserver.net/index.php?page=npc_shop_warp&map={{mvp.map}}" target="_blank">{{mvp.map}}</a>)</small>
-                    </div>
-                    <div><small>{{mvp.respawn.min / 60 | ceil | number:0}} – {{mvp.respawn.max / 60 | ceil | number:0}} Minutes</small></div>
-                </td>
-                <td>
-                    <div ng-if="mvp.$track.$respawn">
+    <div class="animate-out-hide animated fadeIn" ng-if="isValid()">
+        <div class="input-group mvp-filter pull-right">
+            <input id="mvpFilter" type="text" class="form-control form-control-sm" placeholder="Search" ng-class="{'rounded': !mvpFilter}" ng-model="mvpFilter">
+            <span class="input-group-btn" ng-show="mvpFilter">
+                <button class="btn btn-default" type="button" ng-click="mvpFilter=''">
+                    <span class="fas fa-times"></span>
+                </button>
+            </span>
+        </div>
+        <table class="table table-striped mvp-list">
+            <thead>
+                <tr>
+                    <td width="30%">MVP</td>
+                    <td width="50%">Spawn Time</td>
+                    <td width="20%">Update</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="mvp in (mvpList | filter:mvpFilter | orderBy:orderTrackList)" ng-class="mvp.$track.$highlight">
+                    <td>
                         <div>
-                            <span>{{mvp.$state ? '' : 'in'}}</span>
-                            <strong>
-                                <span ng-class="mvp.$track.$respawn.min > 0 ? 'text-success' : 'text-danger'">
-                                    {{mvp.$state ? (((-1 * mvp.$track.$respawn.min) / 60) | ceil | number:0) : ((mvp.$track.$respawn.min / 60) | ceil | number:0)}}
-                                </span>
-                            </strong>
-                            minutes to
-                            <strong>
-                                <span ng-class="mvp.$track.$respawn.max > 0 ? 'text-success' : 'text-danger'">
-                                    {{mvp.$state ? (((-1 * mvp.$track.$respawn.max) / 60) | ceil | number:0) : ((mvp.$track.$respawn.max / 60) | ceil | number:0)}}
-                                </span>
-                            </strong>
-                            minutes
-                            <span>{{mvp.$state ? 'ago' : ''}}</span>
+                            <span class="mvp-name"><a href="https://panel.talonro.com/mobdb/{{mvp.id}}/" target="_blank">{{mvp.name}}</a></span>
+                            <small>(<a href="http://ratemyserver.net/index.php?page=npc_shop_warp&map={{mvp.map}}" target="_blank">{{mvp.map}}</a>)</small>
                         </div>
-                        <div>last tracked <span am-time-ago="mvp.$track.time * 1000"></span> by <strong>{{mvp.$track.name}}</strong></div>
-                    </div>
-                    <div ng-if="!mvp.$track.$respawn">–</div>
-                </td>
-                <td>
-                    <form class="form-inline" role="form">
-                    <div class="input-group input-group-sm group-track">
-                        <input type="text" class="form-control form-control-sm" ng-init="ago=0" ng-blur="!ago ? ago=0 : ago=ago" ng-model="ago">
-                        <span class="ago"></span>
-                        <span class="input-group-btn">
-                            <button class="btn btn-default btn-sm" type="button" ng-click="setTrack(mvp, ago * 60); ago=0;">
-                                <span class="glyphicon glyphicon-share-alt"></span>
+                        <div><small>{{mvp.respawn.min / 60 | ceil | number:0}} – {{mvp.respawn.max / 60 | ceil | number:0}} Minutes</small></div>
+                    </td>
+                    <td>
+                        <div ng-if="mvp.$track.$respawn">
+                            <div>
+                                <span>{{mvp.$state ? '' : 'in'}}</span>
+                                <strong>
+                                    <span ng-class="mvp.$track.$respawn.min > 0 ? 'text-success' : 'text-danger'">
+                                        {{mvp.$state ? (((-1 * mvp.$track.$respawn.min) / 60) | ceil | number:0) : ((mvp.$track.$respawn.min / 60) | ceil | number:0)}}
+                                    </span>
+                                </strong>
+                                minutes to
+                                <strong>
+                                    <span ng-class="mvp.$track.$respawn.max > 0 ? 'text-success' : 'text-danger'">
+                                        {{mvp.$state ? (((-1 * mvp.$track.$respawn.max) / 60) | ceil | number:0) : ((mvp.$track.$respawn.max / 60) | ceil | number:0)}}
+                                    </span>
+                                </strong>
+                                minutes
+                                <span>{{mvp.$state ? 'ago' : ''}}</span>
+                            </div>
+                            <div>last tracked <span am-time-ago="mvp.$track.time * 1000"></span> by <strong>{{mvp.$track.name}}</strong></div>
+                        </div>
+                        <div ng-if="!mvp.$track.$respawn">–</div>
+                    </td>
+                    <td>
+                        <form class="form-inline" role="form">
+                        <div class="input-group input-group-sm group-track">
+                            <input type="text" class="form-control form-control-sm" ng-init="ago=0" ng-blur="!ago ? ago=0 : ago=ago" ng-model="ago">
+                            <span class="ago"></span>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-sm" type="button" ng-click="setTrack(mvp, ago * 60); ago=0;">
+                                    <span class="fas fa-share"></span>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="form-group" ng-if="mvp.$track.$respawn">
+                            <button class="btn btn-default btn-sm" type="button" ng-click="removeTrack(mvp)">
+                                <span class="fas fa-times"></span>
                             </button>
-                        </span>
-                    </div>
-                    <div class="form-group" ng-if="mvp.$track.$respawn">
-                        <button class="btn btn-default btn-sm" type="button" ng-click="removeTrack(mvp)">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </button>
-                    </div>
-                    </form>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                        </div>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

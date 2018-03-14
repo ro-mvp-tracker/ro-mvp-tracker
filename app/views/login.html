@@ -1,0 +1,31 @@
+<div class="form-login-container" ng-controller="LoginCtrl">
+    <form id="loginForm" class="form-horizontal form-login">
+        <div class="form-login-header" ng-class="isValid() ? 'valid' : 'invalid'"></div>
+        <div class="form-login-content">
+            <h4>Login</h4>
+            <!-- email -->
+            <div class="form-group">
+                <label class="col-md-12 control-label" for="email">E-Mail</label>  
+                <div class="col-md-12">
+                    <input id="email" name="email" type="text" placeholder="" class="form-control input-md" ng-model="credentials.email" ng-disabled="login.authenticating">
+                </div>
+            </div>
+            <!-- password1 -->
+            <div class="form-group">
+                <label class="col-md-12 control-label" for="password1">Password</label>  
+                <div class="col-md-12">
+                    <input id="password1" name="password1" type="password" placeholder="" class="form-control input-md" ng-model="credentials.password" ng-disabled="login.authenticating">
+                </div>
+            </div>
+            <!-- submit -->
+            <div class="form-group">
+                <div class="col-md-12">
+                    <button name="submit" class="btn btn-default" ng-click="submit()" ng-disabled="!isValid() || login.authenticating">Login</button>
+                    <a ui-sref="signup">Create Account</a>
+                </div>
+            </div>
+            <!-- error -->
+            <div class="text-danger"><strong>{{errorMessage}}</strong></div>
+        </div>
+    </form>
+</div>

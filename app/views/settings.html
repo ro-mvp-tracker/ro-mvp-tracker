@@ -1,30 +1,30 @@
 <form class="form-horizontal" ng-controller="SettingsCtrl">
-    <!-- authentication key-->
-    <div class="form-group" ng-class="(!settings.authKey || !settings.$authenticated) ? 'invalid' : ''">
-        <label class="col-md-12 control-label" for="authKey">Authentication Key <small><span class="glyphicon glyphicon-lock"></span></small></label>   
+    <!-- email -->
+    <div class="form-group">
+        <label class="col-md-12 control-label" for="authKey">E-Mail</label>   
         <div class="col-md-12">
             <div class="input-group">
-                <input id="authKey" name="authKey" type="text" placeholder="" class="form-control input-md" ng-model="settings.authKey">
+                <input id="settings-email" name="settings-email" type="text" placeholder="" class="form-control input-md" ng-model="login.user.email" disabled="disabled">
                 <span class="input-group-btn">
-                    <span name="auth" class="btn btn-default" ng-class="!settings.$authenticated ? 'btn-danger' : 'btn-success'">
-                        <span class="glyphicon" ng-class="!settings.$authenticated ? 'glyphicon-remove' : 'glyphicon-ok'"></span>
+                    <span name="auth" class="btn btn-default" uib-tooltip="Logout" ng-click="settingsDropdown.open=false;logout();">
+                        <i class="fas fa-sign-out-alt"></i>
                     </span>
                 </span>
             </div>
         </div>
     </div>
-    <!-- group-->
-    <div class="form-group" ng-class="!settings.group ? 'invalid' : ''">
-        <label class="col-md-12 control-label" for="group">Group</label>  
+    <!-- username -->
+    <div class="form-group">
+        <label class="col-md-12 control-label" for="username">Display Name</label>  
         <div class="col-md-12">
-            <input id="group" name="group" type="text" placeholder="" class="form-control input-md" ng-model="settings.group">
+            <input id="settings-username" name="settings-username" type="text" placeholder="" class="form-control input-md" ng-model="login.userData.username">
         </div>
     </div>
-    <!-- name-->
-    <div class="form-group" ng-class="!settings.name ? 'invalid' : ''">
-        <label class="col-md-12 control-label" for="name">Name</label>  
+    <!-- group -->
+    <div class="form-group">
+        <label class="col-md-12 control-label" for="group">Tracker Group</label>  
         <div class="col-md-12">
-            <input id="name" name="name" type="text" placeholder="" class="form-control input-md" ng-model="settings.name">
+            <input id="settings-group" name="settings-group" type="text" placeholder="" class="form-control input-md" ng-model="settings.group">
         </div>
     </div>
     <!-- notification-->

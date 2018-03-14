@@ -22,23 +22,36 @@ var app = angular.module('roMvpTrackerApp', [
     'ui.router',
     'ui.bootstrap',
     'angular-loading-bar',
-    'angular-web-notification'
+    'angular-web-notification',
+    'ngAnimate-animate.css'
 ]);
 
 
-app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProvider, cfpLoadingBarProvider) {
     localStorageServiceProvider.setPrefix('roMvpTrackerApp');
+    cfpLoadingBarProvider.includeSpinner = false;
 
     $stateProvider.state('mvp', {
         url: '/',
         templateUrl: 'views/mvp.html'
     });
 
+    $stateProvider.state('login', {
+        url: '/login',
+        templateUrl: 'views/login.html'
+    });
+
+    $stateProvider.state('signup', {
+        url: '/signup',
+        templateUrl: 'views/signup.html'
+    });
+
     $urlRouterProvider.otherwise('/');
 });
 
-app.run(function ($rootScope, firebase) {
+app.run(function ($rootScope, $state, firebase) {
     $rootScope.settings = {};
+    $rootScope.$state = $state;
 
     var config = {
         apiKey: 'AIzaSyBWou-B2GvCKnjXlNQls9plahI0U0f3Y_8',

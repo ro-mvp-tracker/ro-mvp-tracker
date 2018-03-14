@@ -9,6 +9,10 @@ body {
     padding: 0;
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 /* header */
 .header {
     margin-bottom: 0;
@@ -18,28 +22,30 @@ body {
     margin-bottom: 0;
 }
 
-#loading-bar-spinner {
-    top: 17px !important;
-    right: 65px !important;
-    left: inherit;
+.header .navbar .navbar-element {
+    float: right;
+    padding: 15px !important;
 }
 
 /* dropdown-users */
 .header .dropdown-users {
-    float: right;
-    padding: 15px !important;
 }
 
 .header .dropdown-users.open,
 .header .dropdown-users.open:focus,
 .header .dropdown-users.open:hover {
     color: #555 !important;
-    background-color: #e7e7e7 !important;
-    padding: 15px !important;
+    padding-bottom: 15px !important;
 }
 
 .header .dropdown-users > a {
     color: #777;
+}
+
+.header .dropdown-users > .dropdown-menu {
+}
+
+.header .dropdown-users.open > .dropdown-menu {
 }
 
 .header .dropdown-users.open > a {
@@ -60,16 +66,26 @@ body {
     margin-bottom: 2px;
 }
 
-.header .dropdown-users-content .glyphicon-dot:before {
-    content: "\26AB";
+.header .dropdown-users-content .username {
+    display: inline-block;
+    max-width: 160px;
+    overflow: hidden;
+}
+
+.header .dropdown-users-content .fa-circle {
     color: #00ad00;
     margin-right: 3px;
+    height: 21px;
+}
+
+.header .users-counter {
+    font-size: 43px;
+    top: -10px;
+    right: -10px;
 }
 
 /* dropdown-settings */
 .header .dropdown-settings {
-    float: right;
-    padding: 15px !important;
 }
 
 .header .dropdown-settings.invalid > a {
@@ -84,8 +100,7 @@ body {
 .header .dropdown-settings.open:focus,
 .header .dropdown-settings.open:hover {
     color: #555 !important;
-    background-color: #e7e7e7 !important;
-    padding: 15px !important;
+    padding-bottom: 15px !important;
 }
 
 .header .dropdown-settings > a {
@@ -131,6 +146,10 @@ body {
 }
 
 .container {
+}
+
+.animate-out-hide.ng-leave.ng-leave-active {
+    display: none;
 }
 
 /* mvp-list */
@@ -190,4 +209,40 @@ body {
 .mvp-filter .rounded {
     border-top-right-radius: 4px !important;
     border-bottom-right-radius: 4px !important;
+}
+
+/* form-login */
+.form-login-container {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.form-login {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background-color: #fff;
+    border-radius: 2px;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-login .form-login-header {
+    height: 4px;
+}
+
+.form-login .form-login-header.valid {
+    background-color: #5cb85c;
+}
+
+.form-login .form-login-header.invalid {
+    background-color: #a94442;
+}
+
+.form-login .form-login-content {
+    padding: 15px;
+}
+
+.form-login .control-label {
+    text-align: left !important;
 }

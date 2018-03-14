@@ -32,30 +32,7 @@ app.controller('SettingsCtrl', function ($scope, $rootScope, $timeout, $state, $
             }
         });
 
-        var t2;
-        $rootScope.$watch('settings.authKey', function() {
-            $timeout.cancel(t2);
-            t2 = $timeout($scope.authenticate, 2000);
-        });
-
-        var retauthenticate = false;
-        $firebaseAuth().$onAuthStateChanged(function(user) {
-            if (user) {
-                $rootScope.settings.$user = user;
-                $rootScope.settings.$authenticated = true;
-                retauthenticate = false;
-            } else {
-                $rootScope.settings.$user = null;
-                $rootScope.settings.$authenticated = false;
-                if (!retauthenticate) {
-                    retauthenticate = true;
-                    $scope.authenticate();
-                }
-            }
-        });
-
         $scope.load();
-        $scope.authenticate();
     };
 
     $scope.load = function() {
@@ -70,31 +47,15 @@ app.controller('SettingsCtrl', function ($scope, $rootScope, $timeout, $state, $
                 notificationEnabled: false,
                 notificationTime: 1
             };
-
-            $scope.settingsDropdown.open = true;
         }
-
-        $rootScope.settings.$authenticated = false;
     };
 
     $scope.save = function() {
         localStorageService.set('settings', $rootScope.settings);
     };
 
-    $scope.authenticate = function() {
-        var email = 'ro.mvp.tracker@gmx.de';
-        $firebaseAuth().$signInWithEmailAndPassword(email, $rootScope.settings.authKey)
-        .then(function(res) {
-            $rootScope.settings.$authenticated = true;
-        })
-        .catch(function(error) {
-            $rootScope.settings.$authenticated = false;
-        });
-    };
-
     $rootScope.isValidSettings = function() {
-        if (!$rootScope.settings.$authenticated || 
-            !$rootScope.settings.authKey || 
+        if (!$rootScope.settings.authKey || 
             !$rootScope.settings.group || 
             !$rootScope.settings.name) {
             return false;

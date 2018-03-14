@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Ragnarok MVP Tracker</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -10,54 +10,66 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/fontawesome-all.css" />
+    <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="roMvpTrackerApp">
+  <body class="ng-cloak" ng-app="roMvpTrackerApp" ng-controller="AuthCtrl">
 
     <!-- Add your site or application content here -->
     <div class="header">
         <div class="navbar navbar-default" role="navigation">
             <div class="container-fluid container">
                 <a class="navbar-brand" href="#">Ragnarok MVP Tracker</a>
-                <span class="dropdown-settings" ng-class="!isValidSettings() ? 'invalid' : ''" is-open="settingsDropdown.open" uib-dropdown>
-                    <a href="javascript:void(0);" class="dropdown-toggle" role="button" uib-dropdown-toggle>
-                        <span class="glyphicon glyphicon-cog"></span>
-                    </a>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                        <li class="dropdown-settings-content" ng-click="$event.stopPropagation();">
-                            <div ng-include="'views/settings.html'"></div>
-                        </li>
-                    </ul>
+                <span class="navbar-element dn-flip-x" ng-if="$state.is('mvp')">
+                    <span class="dropdown-settings" is-open="settingsDropdown.open" uib-dropdown ng-if="$state.is('mvp')">
+                        <a href="javascript:void(0);" id="dropdownMenu1" uib-dropdown-toggle>
+                            <span class="fas fa-sliders-h"></span>
+                        </a>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right dn-flip-x" role="menu" aria-labelledby="dropdownMenu1" ng-show="settingsDropdown.open" uib-dropdown-menu>
+                            <li class="dropdown-settings-content" ng-click="$event.stopPropagation();">
+                                <div ng-include="'views/settings.html'"></div>
+                            </li>
+                        </ul>
+                    </span>
                 </span>
-                <span class="dropdown-users" ng-class="!isValidSettings() ? 'invalid' : ''" is-open="usersDropdown.open" uib-dropdown>
-                    <a href="javascript:void(0);" class="dropdown-toggle" role="button" uib-dropdown-toggle>
-                        <span class="glyphicon glyphicon-user"></span>
-                    </a>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-                        <li class="dropdown-users-content" ng-click="$event.stopPropagation();">
-                            <div ng-include="'views/users.html'"></div>
-                        </li>
-                    </ul>
+                <span class="navbar-element dn-flip-x" ng-if="$state.is('mvp') && login.userData.activated">
+                    <span class="dropdown-users" is-open="usersDropdown.open" uib-dropdown ng-controller="UsersCtrl">
+                        <a href="javascript:void(0);" id="dropdownMenu2" class="fa-layers fa-fw" uib-dropdown-toggle>
+                            <span class="fas fa-users"></span>
+                            <span class="fa-layers-counter users-counter" ng-if="usersOnline.length > 0">{{usersOnline.length}}</span>
+                        </a>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right dn-flip-x" role="menu" aria-labelledby="dropdownMenu2" ng-show="usersDropdown.open" uib-dropdown-menu>
+                            <li class="dropdown-users-content" ng-click="$event.stopPropagation();">
+                                <div ng-include="'views/users.html'"></div>
+                            </li>
+                        </ul>
+                    </span>
+                </span>
+                <span class="navbar-element dn-flip-x" ng-if="login.authenticating">
+                    <i class="fas fa-circle-notch fa-spin"></i>
                 </span>
             </div>
         </div>
     </div>
 
+    <!-- <pre>{{login | json}}</pre> -->
+
     <div class="content">
         <div class="container">
-            <div ui-view=""></div>
+            <div class="animate-out-hide animated bounceInLeft" ng-show="true" ui-view=""></div>
         </div>
     </div>
 
     <div class="footer">
         <div class="container">
-            <a href="https://github.com/ro-mvp-tracker" target="_blank">Github</a>
+            <a href="https://github.com/ro-mvp-tracker" target="_blank"><i class="fab fa-github"></i> Github</a>
         </div>
     </div>
 
@@ -94,8 +106,10 @@
     <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
     <script src="bower_components/simple-web-notification/web-notification.js"></script>
     <script src="bower_components/angular-web-notification/angular-web-notification.js"></script>
+    <script src="bower_components/ngAnimate-animate.css/animate.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
@@ -105,6 +119,10 @@
     <script src="scripts/filters/ceil.js"></script>
     <script src="scripts/services/time.js"></script>
     <script src="scripts/controllers/users.js"></script>
+    <script src="scripts/controllers/signup.js"></script>
+    <script src="scripts/controllers/auth.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/services/auth.js"></script>
     <!-- endbuild -->
 </body>
 </html>
