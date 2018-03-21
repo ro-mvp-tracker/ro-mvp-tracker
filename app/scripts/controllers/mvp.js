@@ -92,7 +92,7 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
         }
 
         //staled track
-        if (a.$track.$respawn.min < 0 && a.$track.$respawn.max < 0 && -1 * a.$track.$respawn.min > 1800) {
+        if (a.$track.$respawn.min < 0 && a.$track.$respawn.max < 0 && -1 * a.$track.$respawn.min > 3600) {
             a.$track.$highlight = 'stale';
             return -a.$track.$respawn.min;
         }
@@ -105,7 +105,12 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
             a.$track.$highlight = 'danger';
         }
 
-        return Number.MIN_SAFE_INTEGER + a.$track.$respawn.min;
+        if (a.$track.$respawn.min <= 0 && a.$track.$respawn.max <= 0) {
+            return Number.MIN_SAFE_INTEGER + a.$track.$respawn.min;
+        } else {
+            return Number.MIN_SAFE_INTEGER + a.$track.$respawn.min + 10000;
+        }
+        
     };
 
     $scope.getTrackList = function() {
