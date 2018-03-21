@@ -133,7 +133,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
         {
             "id": 1646,
             "map": "lhz_dun03",
-            "name": "Lord Knight Seyren",
+            "name": "Lord Knight Seyren (Bio 3)",
             "respawn": {
                 "min": 6000,
                 "max": 7800,
@@ -142,7 +142,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
         {
             "id": 1647,
             "map": "lhz_dun03",
-            "name": "Assassin Cross Eremes",
+            "name": "Assassin Cross Eremes (Bio 3)",
             "respawn": {
                 "min": 6000,
                 "max": 7800,
@@ -151,7 +151,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
         {
             "id": 1648,
             "map": "lhz_dun03",
-            "name": "Whitesmith Howard",
+            "name": "Whitesmith Howard (Bio 3)",
             "respawn": {
                 "min": 6000,
                 "max": 7800,
@@ -160,7 +160,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
         {
             "id": 1649,
             "map": "lhz_dun03",
-            "name": "High Priest Margaretha",
+            "name": "High Priest Margaretha (Bio 3)",
             "respawn": {
                 "min": 6000,
                 "max": 7800,
@@ -169,7 +169,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
         {
             "id": 1650,
             "map": "lhz_dun03",
-            "name": "Sniper Cecil",
+            "name": "Sniper Cecil (Bio 3)",
             "respawn": {
                 "min": 6000,
                 "max": 7800,
@@ -178,7 +178,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
         {
             "id": 1651,
             "map": "lhz_dun03",
-            "name": "High Wizard Kathryne",
+            "name": "High Wizard Kathryne (Bio 3)",
             "respawn": {
                 "min": 6000,
                 "max": 7800,
@@ -192,7 +192,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
                 "min": 7200,
                 "max": 7800,
             }
-        },
+        },/*
         {
             "id": 1272,
             "map": "gld_dun04",
@@ -201,7 +201,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
                 "min": 28800,
                 "max": 29400,
             }
-        },
+        },*/
         {
             "id": 1272,
             "map": "gl_chyard",
@@ -246,7 +246,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
                 "min": 7200,
                 "max": 7800,
             }
-        },
+        },/*
         {
             "id": 1046,
             "map": "gld_dun02",
@@ -255,7 +255,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
                 "min": 28800,
                 "max": 29400,
             }
-        },
+        },*/
         {
             "id": 1389,
             "map": "gef_dun01",
@@ -273,7 +273,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
                 "min": 7200,
                 "max": 7800,
             }
-        },
+        },/*
         {
             "id": 1115,
             "map": "gld_dun01",
@@ -282,7 +282,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
                 "min": 28800,
                 "max": 29400,
             }
-        },
+        },*/
         {
             "id": 1115,
             "map": "pay_fild11",
@@ -327,7 +327,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
                 "min": 7200,
                 "max": 7800,
             }
-        },
+        },/*
         {
             "id": 1120,
             "map": "gld_dun04",
@@ -336,7 +336,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
                 "min": 14400,
                 "max": 21600,
             }
-        },
+        },*/
         {
             "id": 1120,
             "map": "pay_fild04",
@@ -480,7 +480,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
                 "min": 7200,
                 "max": 7800,
             }
-        },
+        },/*
         {
             "id": 1147,
             "map": "gld_dun03",
@@ -489,7 +489,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
                 "min": 28800,
                 "max": 29400,
             }
-        },
+        },*/
         {
             "id": 1289,
             "map": "anthell01",
@@ -498,7 +498,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
                 "min": 7200,
                 "max": 10800,
             }
-        },
+        },/*
         {
             "id": 1289,
             "map": "gld_dun03",
@@ -507,7 +507,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
                 "min": 1200,
                 "max": 1800,
             }
-        },
+        },*/
         {
             "id": 1059,
             "map": "mjolnir_04",
@@ -619,7 +619,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
         {
             "id": 1583,
             "map": "beach_dun",
-            "name": "Tao Gunka",
+            "name": "Tao Gunka (West)",
             "respawn": {
                 "min": 18000,
                 "max": 18600,
@@ -628,7 +628,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
         {
             "id": 1583,
             "map": "beach_dun2",
-            "name": "Tao Gunka",
+            "name": "Tao Gunka (North)",
             "respawn": {
                 "min": 18000,
                 "max": 18600,
@@ -637,7 +637,7 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
         {
             "id": 1583,
             "map": "beach_dun3",
-            "name": "Tao Gunka",
+            "name": "Tao Gunka (East)",
             "respawn": {
                 "min": 18000,
                 "max": 18600,
