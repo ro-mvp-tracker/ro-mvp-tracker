@@ -211,9 +211,7 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
 
                     //remove old tracks
                     if ((-1 * max) > (mvp.respawn.max * 3.2)) {
-                        var ref = DataSrv.get('tracks/' + $rootScope.settings.group + '/' + key);
-                        ref.remove();
-                        mvp.$track = {};
+                        mvp.$track.$respawn = null;
                     }
                 }
             }
