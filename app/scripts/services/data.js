@@ -9,7 +9,7 @@
  * # DataSrv
  * Service in the roMvpTrackerApp.
  */
-app.service('DataSrv', function (firebase, $firebaseObject) {
+app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
     var service = {};
 
     service.getMvpList = function() {
@@ -710,6 +710,13 @@ app.service('DataSrv', function (firebase, $firebaseObject) {
         var obj = $firebaseObject(ref);
 
         return obj;
+    };
+
+    service.getArr = function(path) {
+        var ref = service.get(path);
+        var arr = $firebaseArray(ref);
+
+        return arr;
     };
 
     return service;

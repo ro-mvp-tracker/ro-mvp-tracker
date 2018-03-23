@@ -32,8 +32,13 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
     cfpLoadingBarProvider.includeSpinner = false;
 
     $stateProvider.state('mvp', {
-        url: '/',
+        url: '/mvp',
         templateUrl: 'views/mvp.html'
+    });
+
+    $stateProvider.state('share', {
+        url: '/share',
+        templateUrl: 'views/share.html'
     });
 
     $stateProvider.state('login', {
@@ -46,7 +51,7 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
         templateUrl: 'views/signup.html'
     });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/mvp');
 });
 
 app.run(function ($rootScope, $state, firebase) {

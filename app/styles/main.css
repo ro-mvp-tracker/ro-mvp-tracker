@@ -246,3 +246,42 @@ body {
 .form-login .control-label {
     text-align: left !important;
 }
+
+/* share-list */
+.share-list {
+
+}
+
+.share-list thead {
+    font-weight: bold;
+}
+
+.share-list .users {
+    margin-bottom: 4px;
+}
+
+.share-list .added {
+    cursor: default;
+}
+
+/* form-edit */
+.form-edit {
+    position: fixed;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background-color: #fff;
+    border-radius: 2px;
+    max-width: 350px;
+    left: 0;
+    right: 0;
+    top: 140px;
+    margin: auto;
+    padding: 10px;
+}
+
+.form-edit .control-label {
+    text-align: left !important;
+}
+
+.form-edit .amount {
+    max-width: 70px;
+}

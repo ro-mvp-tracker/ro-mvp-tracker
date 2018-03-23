@@ -24,9 +24,16 @@
     <div class="header">
         <div class="navbar navbar-default" role="navigation">
             <div class="container-fluid container">
-                <a class="navbar-brand" href="#">Ragnarok MVP Tracker</a>
-                <span class="navbar-element dn-flip-x" ng-if="$state.is('mvp')">
-                    <span class="dropdown-settings" is-open="settingsDropdown.open" uib-dropdown ng-if="$state.is('mvp')">
+                <ul class="nav navbar-nav">
+                    <li ui-sref-active="active">
+                        <a ui-sref="mvp">MVP Tracker</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="share">Share Tracker</a>
+                    </li>
+                </ul>
+                <span class="navbar-element dn-flip-x" ng-if="$state.is('mvp') || $state.is('share')">
+                    <span class="dropdown-settings" is-open="settingsDropdown.open" uib-dropdown>
                         <a href="javascript:void(0);" id="dropdownMenu1" uib-dropdown-toggle>
                             <span class="fas fa-sliders-h"></span>
                         </a>
@@ -38,7 +45,7 @@
                         </ul>
                     </span>
                 </span>
-                <span class="navbar-element dn-flip-x" ng-if="$state.is('mvp') && login.userData.activated">
+                <span class="navbar-element dn-flip-x" ng-if="($state.is('mvp') || $state.is('share')) && login.userData.activated">
                     <span class="dropdown-users" is-open="usersDropdown.open" uib-dropdown ng-controller="UsersCtrl">
                         <a href="javascript:void(0);" id="dropdownMenu2" class="fa-layers fa-fw" uib-dropdown-toggle>
                             <span class="fas fa-users"></span>
@@ -123,6 +130,8 @@
     <script src="scripts/controllers/auth.js"></script>
     <script src="scripts/controllers/login.js"></script>
     <script src="scripts/services/auth.js"></script>
+    <script src="scripts/controllers/share.js"></script>
+    <script src="scripts/filters/toarray.js"></script>
     <!-- endbuild -->
 </body>
 </html>
