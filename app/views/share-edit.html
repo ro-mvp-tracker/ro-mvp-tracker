@@ -1,0 +1,104 @@
+<td>
+    <div class="items" ng-repeat="item in editShare.items | toArray">
+        <div class="input-group input-group-sm">
+            <span class="input-group-btn">
+                <input type="text" class="form-control input-sm input-amount" placeholder="#" ng-change="onShareAmountChange(share, item)" ng-model="item.amount">
+            </span>
+            <input type="text" class="form-control input-sm" placeholder="Item" ng-model="item.name">
+            <span class="input-group-btn" ng-if="item.sold">
+                <input type="text" class="form-control input-sm input-price" placeholder="Price" ng-change="onSharePriceChange(share, item)" ng-model="item.price">
+            </span>
+            <span class="input-group-btn">
+                <button class="btn btn-danger" type="button" uib-tooltip="Not sold" ng-click="item.sold=true" ng-if="item.sold===false">
+                    <span class="fas fa-times fa-fw"></span>
+                </button>
+                <button class="btn btn-success" type="button" uib-tooltip="Sold" ng-click="item.sold=false" ng-if="item.sold===true">
+                    <span class="fas fa-check fa-fw"></span>
+                </button>
+                <button class="btn btn-default" type="button" uib-tooltip="Remove" ng-click="removeItem(editShare, item.$id)">
+                    <span class="fas fa-trash"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="pull-right">
+        <div class="input-group input-group-sm input-group-btn-rounded">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-danger" uib-tooltip="Not sold (all)" ng-click="shareItemsAll(editShare, true)" ng-if="!isShareItemsAll(editShare, true) && editShare.items.length > 0">
+                    <span class="fas fa-times fa-fw"></span>
+                </button>
+                <button type="button" class="btn btn-success" uib-tooltip="Sold (all)" ng-click="shareItemsAll(editShare, false)" ng-if="isShareItemsAll(editShare, true) && editShare.items.length > 0">
+                    <span class="fas fa-check fa-fw"></span>
+                </button>
+                <button type="button" class="btn btn-default" ng-click="addItem(editShare)">
+                    <span class="fas fa-plus"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="users" ng-repeat="user in editShare.users | toArray">
+        <div class="input-group input-group-sm">
+            <div class="input-group-btn" uib-dropdown dropdown-append-to-body>
+                <button type="button" class="btn btn-default" uib-dropdown-toggle>
+                    <span class="caret"></span>
+                </button>
+                <ul class="scrollable-menu" uib-dropdown-menu>
+                    <li class="dropdown-filter" ng-click="$event.stopPropagation()">
+                        <input type="text" placeholder="Filter" class="form-control input-sm" ng-model="filterUsers">
+                    </li>
+                    <li class="dropdown-filter-spacer"></li>
+                    <li ng-repeat="u in usersList | toArray | filter:{username: filterUsers}">
+                        <a href="javascript:void(0);" ng-click="user.name=u.username">{{u.username}}</a>
+                    </li>
+                </ul>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" ng-model="user.name">
+            <span class="input-group-btn">
+                <button class="btn btn-danger" type="button" uib-tooltip="Share not send" ng-click="user.send=true" ng-if="user.send===false">
+                    <span class="fas fa-times fa-fw"></span>
+                </button>
+                <button class="btn btn-success" type="button" uib-tooltip="Share send" ng-click="user.send=false" ng-if="user.send===true">
+                    <span class="fas fa-check fa-fw"></span>
+                </button>
+                <button class="btn btn-default" type="button" uib-tooltip="Remove" ng-click="removeUser(editShare, user.$id)">
+                    <span class="fas fa-trash fa-fw"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="pull-right">
+        <div class="input-group input-group-sm input-group-btn-rounded">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-danger" uib-tooltip="Share not send (all)" ng-click="shareUsersAll(editShare, true)" ng-if="!isShareUsersAll(editShare, true) && editShare.users.length > 0">
+                    <span class="fas fa-times fa-fw"></span>
+                </button>
+                <button type="button" class="btn btn-success" uib-tooltip="Share send (all)" ng-click="shareUsersAll(editShare, false)" ng-if="isShareUsersAll(editShare, true) && editShare.users.length > 0">
+                    <span class="fas fa-check fa-fw"></span>
+                </button>
+                <button type="button" class="btn btn-default" ng-click="addUser(editShare)">
+                    <span class="fas fa-plus fa-fw"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+</td>
+<td>
+    <input type="text" class="form-control input-sm" placeholder="Username" ng-model="editShare.seller">
+</td>
+<td>
+    <span class="added" am-time-ago="editShare.date * 1000" uib-tooltip="{{editShare.date | amFromUnix | amDateFormat:'DD.MM.YYYY HH:mm'}}"></span>
+</td>
+<td class="actions">
+    <center>
+        <button type="button" class="btn btn-sm btn-success" uib-tooltip="Save changes" ng-click="save(editShare)">
+            <span class="fas fa-check"></span>
+        </button>
+        <button type="button" class="btn btn-sm btn-danger" uib-tooltip="Discard changes" ng-click="cancel()">
+            <span class="fas fa-ban"></span>
+        </button>
+    </center>
+</td>

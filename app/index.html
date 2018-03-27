@@ -26,10 +26,10 @@
             <div class="container-fluid container">
                 <ul class="nav navbar-nav">
                     <li ui-sref-active="active">
-                        <a ui-sref="mvp">MVP Tracker</a>
+                        <a ui-sref="mvp">MVP</a>
                     </li>
                     <li ui-sref-active="active">
-                        <a ui-sref="share">Share Tracker</a>
+                        <a ui-sref="share">Share</a>
                     </li>
                 </ul>
                 <span class="navbar-element dn-flip-x" ng-if="$state.is('mvp') || $state.is('share')">
@@ -132,6 +132,7 @@
     <script src="scripts/services/auth.js"></script>
     <script src="scripts/controllers/share.js"></script>
     <script src="scripts/filters/toarray.js"></script>
+    <script src="scripts/directives/includereplace.js"></script>
     <!-- endbuild -->
 </body>
 </html>

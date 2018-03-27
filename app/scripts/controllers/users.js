@@ -31,9 +31,9 @@ app.controller('UsersCtrl', function ($rootScope, $scope, $timeout, localStorage
             unbind();
         }
 
-        $scope.usersList = DataSrv.getObj('users');
+        $rootScope.usersList = DataSrv.getObj('users');
 
-        $scope.usersList.$bindTo($scope, 'usersList').then(function(ub) {
+        $rootScope.usersList.$bindTo($scope, 'usersList').then(function(ub) {
             unbind = ub;
         });
     };
@@ -54,10 +54,10 @@ app.controller('UsersCtrl', function ($rootScope, $scope, $timeout, localStorage
 
         var timestamp = time.unix();
         $scope.usersOnline.length = 0;
-        if ($scope.usersList && typeof($scope.usersList) === 'object') {
+        if ($rootScope.usersList && typeof($rootScope.usersList) === 'object') {
             var d;
-            for (var uid in $scope.usersList) {
-                d = $scope.usersList[uid];
+            for (var uid in $rootScope.usersList) {
+                d = $rootScope.usersList[uid];
                 if (d && typeof(d) === 'object' && d.lastOnline >= timestamp - 20) {
                     $scope.usersOnline.push(d);
                 }

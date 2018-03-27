@@ -27,6 +27,10 @@ body {
     padding: 15px !important;
 }
 
+.header .navbar li.active > a {
+    border-bottom: 2px solid #337ab7 !important;
+}
+
 /* dropdown-users */
 .header .dropdown-users {
 }
@@ -141,7 +145,7 @@ body {
 
 /* content */
 .content {
-    min-height: calc(100% - 112px);
+    min-height: calc(100% - 114px);
     padding: 10px 0;
 }
 
@@ -149,7 +153,7 @@ body {
 }
 
 .animate-out-hide.ng-leave.ng-leave-active {
-    display: none;
+    display: none !important;
 }
 
 /* mvp-list */
@@ -161,13 +165,25 @@ body {
     font-weight: bold;
 }
 
+.mvp-list thead > tr > td:nth-child(1) {
+    width: 30%;
+}
+
+.mvp-list thead > tr > td:nth-child(2) {
+    width: 50%;
+}
+
+.mvp-list thead > tr > td:nth-child(3) {
+    min-width: 160px;
+}
+
 .mvp-list td {
     vertical-align: middle !important;
     padding: 5px;
 }
 
 .mvp-list tr.stale {
-    background-color: #f2dede !important;
+    background-color: #ffe6e6 !important;
 }
 
 .mvp-list .group-track {
@@ -202,11 +218,12 @@ body {
     margin-right: 5px;
 }
 
-.mvp-filter {
+.search-filter {
     width: 250px;
+    margin-bottom: 10px;
 }
 
-.mvp-filter .rounded {
+.search-filter .rounded {
     border-top-right-radius: 4px !important;
     border-bottom-right-radius: 4px !important;
 }
@@ -248,15 +265,57 @@ body {
 }
 
 /* share-list */
-.share-list {
+.share-list-ontainer {
+    width: 100%;
+    overflow-x: auto;
+}
 
+.share-list {
+    margin: 0;
 }
 
 .share-list thead {
     font-weight: bold;
 }
 
+.share-list thead > tr > td:nth-child(1) {
+    width: 30%;
+    min-width: 240px;
+}
+
+.share-list thead > tr > td:nth-child(2) {
+    width: 30%;
+    min-width: 240px;
+}
+
+.share-list thead > tr > td:nth-child(3) {
+    width: 15%;
+}
+
+.share-list thead > tr > td:nth-child(4) {
+    width: 15%;
+}
+
+.share-list thead > tr > td:nth-child(5) {
+    min-width: 100px;
+}
+
+.share-list tr.fade2 {
+    background-color: #edf7e9 !important;
+    color: #888888;
+}
+
+.share-list hr {
+    border-color: #ddd;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
 .share-list .users {
+    margin-bottom: 4px;
+}
+
+.share-list .items {
     margin-bottom: 4px;
 }
 
@@ -264,24 +323,84 @@ body {
     cursor: default;
 }
 
-/* form-edit */
-.form-edit {
+.share-list .input-amount {
+    width: 45px;
+    margin-right: -1px;
+    border-top-left-radius: 3px !important;
+    border-bottom-left-radius: 3px !important;
+}
+
+.share-list .input-price {
+    width: 52px;
+    margin-left: -1px;
+    border-top-left-radius: 3px !important;
+    border-bottom-left-radius: 3px !important;
+}
+
+.share-list .input-group {
+    width: 100%;
+}
+
+.share-list .actions {
+    vertical-align: middle !important;
+}
+
+.share-list .actions > button {
+    margin-right: 3px;
+    margin-bottom: 3px;
+}
+
+.dropdown-filter {
     position: fixed;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    background-color: #fff;
-    border-radius: 2px;
-    max-width: 350px;
-    left: 0;
-    right: 0;
-    top: 140px;
-    margin: auto;
-    padding: 10px;
+    margin-top: -6px;
+    margin-right: -1px;
+    margin-left: -1px;
 }
 
-.form-edit .control-label {
-    text-align: left !important;
+.dropdown-filter-spacer {
+    margin-bottom: 18px;
 }
 
-.form-edit .amount {
-    max-width: 70px;
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.input-group-btn-rounded > input {
+    display: none !important;
+}
+
+.input-group-btn-rounded > .input-group-btn > button:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.input-group-btn-rounded > .input-group-btn > button:last-child {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.loading-content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.strike-through {
+    text-decoration: line-through;
+}
+
+.table > thead > tr > td.danger,
+.table > tbody > tr > td.danger, 
+.table > tfoot > tr > td.danger, 
+.table > thead > tr > th.danger, 
+.table > tbody > tr > th.danger, 
+.table > tfoot > tr > th.danger, 
+.table > thead > tr.danger > td, 
+.table > tbody > tr.danger > td, 
+.table > tfoot > tr.danger > td, 
+.table > thead > tr.danger > th, 
+.table > tbody > tr.danger > th, 
+.table > tfoot > tr.danger > th {
+    background-color: #ffe6e6;
 }

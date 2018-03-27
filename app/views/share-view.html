@@ -1,0 +1,46 @@
+<td>
+    <div class="items" ng-repeat="item in share.items | toArray">
+        <span uib-tooltip="Not sold">
+            <span class="fas fa-times-circle fa-fw text-danger" ng-if="item.sold===false"></span>
+        </span>
+        <span uib-tooltip="Sold">
+            <span class="fas fa-check-circle fa-fw text-success" ng-if="item.sold===true"></span>
+        </span>
+        <span ng-class="{'strike-through': item.sold===true}">{{item.amount}} × {{item.name || '(item)'}}</span>
+        <span ng-if="item.sold===true && item.price > 0">{{item.price * item.amount | number}}</span>
+    </div>
+    <div ng-if="share.$sold===true && share.$total > 0">
+        <hr>
+        <div>Total: {{share.$total | number}}</div>
+        <div>Share: {{share.$total / share.users.length | number}}</div>
+    </div>
+</td>
+<td>
+    <div class="users" ng-repeat="user in share.users | toArray">
+        <span uib-tooltip="Share not send">
+            <span class="fas fa-times-circle fa-fw text-danger" ng-if="user.send===false"></span>
+        </span>
+        <span uib-tooltip="Share send">
+            <span class="fas fa-check-circle fa-fw text-success" ng-if="user.send===true"></span>
+        </span>
+        <span ng-class="{'strike-through': user.send===true}">{{user.name || '(username)'}}</span>
+    </div>
+</td>
+<td>
+    {{share.seller || '(username)'}}
+</td>
+<td>
+    <span class="added" am-time-ago="share.date * 1000" uib-tooltip="{{share.date | amFromUnix | amDateFormat:'DD.MM.YYYY HH:mm'}}"></span>
+</td>
+<td class="actions">
+    <center>
+        <span ng-if="share.owner === login.user.uid">
+            <button type="button" class="btn btn-sm btn-default" uib-tooltip="Edit" ng-click="edit(share)">
+                <span class="fas fa-edit fa-fw"></span>
+            </button>
+            <button type="button" class="btn btn-sm btn-default" uib-tooltip="Remove" ng-click="removeShare(share)">
+                <span class="fas fa-trash fa-fw"></span>
+            </button>
+        </span>
+    </center>
+</td>

@@ -17,7 +17,7 @@ app.filter('toArray', function () {
         for (var k in input) {
         	v = input[k];
             if (v && typeof(v) === 'object') {
-                v.$key = k;
+                v.$id = k;
             	output.push(v);
             }
         }
