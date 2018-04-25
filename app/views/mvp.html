@@ -34,7 +34,8 @@
                             <span class="mvp-name"><a href="https://panel.talonro.com/mobdb/{{mvp.id}}/" target="_blank">{{mvp.name}}</a></span>
                             <small>(<a href="http://ratemyserver.net/index.php?page=npc_shop_warp&map={{mvp.map}}" target="_blank">{{mvp.map}}</a>)</small>
                         </div>
-                        <div><small>{{mvp.respawn.min / 60 | ceil | number:0}} – {{mvp.respawn.max / 60 | ceil | number:0}} Minutes</small></div>
+                        <div><small>New: {{mvp.respawn.min / 60 | ceil | number:0}} – {{mvp.respawn.max / 60 | ceil | number:0}} Minutes</small></div>
+                        <div><small>Old: {{mvp.respawnOld.min / 60 | ceil | number:0}} – {{mvp.respawnOld.max / 60 | ceil | number:0}} Minutes</small></div>
                     </td>
                     <td>
                         <div ng-if="mvp.$track.$respawn">

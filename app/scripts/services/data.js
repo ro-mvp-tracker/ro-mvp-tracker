@@ -20,6 +20,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 3600,
                 "max": 4200,
+            },
+            "respawnOld": {
+                "min": 3600,
+                "max": 4200,
             }
         },
         {
@@ -27,6 +31,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "pay_fild04",
             "name": "Angeling",
             "respawn": {
+                "min": 3600,
+                "max": 5400,
+            },
+            "respawnOld": {
                 "min": 3600,
                 "max": 5400,
             }
@@ -38,6 +46,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 3600,
                 "max": 5400,
+            },
+            "respawnOld": {
+                "min": 3600,
+                "max": 5400,
             }
         },
         {
@@ -45,6 +57,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "yuno_fild03",
             "name": "Angeling",
             "respawn": {
+                "min": 3600,
+                "max": 5400,
+            },
+            "respawnOld": {
                 "min": 3600,
                 "max": 5400,
             }
@@ -56,6 +72,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 3600,
                 "max": 3780,
+            },
+            "respawnOld": {
+                "min": 3600,
+                "max": 3780,
             }
         },
         {
@@ -63,6 +83,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "ra_fild02",
             "name": "Atroce",
             "respawn": {
+                "min": 14400,
+                "max": 15000,
+            },
+            "respawnOld": {
                 "min": 14400,
                 "max": 15000,
             }
@@ -74,6 +98,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 10800,
                 "max": 11400,
+            },
+            "respawnOld": {
+                "min": 10800,
+                "max": 11400,
             }
         },
         {
@@ -81,6 +109,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "ra_fild04",
             "name": "Atroce",
             "respawn": {
+                "min": 18000,
+                "max": 18600,
+            },
+            "respawnOld": {
                 "min": 18000,
                 "max": 18600,
             }
@@ -92,6 +124,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 10800,
                 "max": 11400,
+            },
+            "respawnOld": {
+                "min": 10800,
+                "max": 11400,
             }
         },
         {
@@ -99,6 +135,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "ve_fild02",
             "name": "Atroce",
             "respawn": {
+                "min": 21600,
+                "max": 22200,
+            },
+            "respawnOld": {
                 "min": 21600,
                 "max": 22200,
             }
@@ -110,6 +150,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 7020,
                 "max": 7620,
+            },
+            "respawnOld": {
+                "min": 7020,
+                "max": 7620,
             }
         },
         {
@@ -117,6 +161,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "prt_maze03",
             "name": "Baphomet",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -128,6 +176,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 43200,
                 "max": 43800,
+            },
+            "respawnOld": {
+                "min": 43200,
+                "max": 43800,
             }
         },
         {
@@ -135,6 +187,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "lhz_dun03",
             "name": "Lord Knight Seyren (Bio 3)",
             "respawn": {
+                "min": 6000,
+                "max": 7800,
+            },
+            "respawnOld": {
                 "min": 6000,
                 "max": 7800,
             }
@@ -146,6 +202,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 6000,
                 "max": 7800,
+            },
+            "respawnOld": {
+                "min": 6000,
+                "max": 7800,
             }
         },
         {
@@ -153,6 +213,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "lhz_dun03",
             "name": "Whitesmith Howard (Bio 3)",
             "respawn": {
+                "min": 6000,
+                "max": 7800,
+            },
+            "respawnOld": {
                 "min": 6000,
                 "max": 7800,
             }
@@ -164,6 +228,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 6000,
                 "max": 7800,
+            },
+            "respawnOld": {
+                "min": 6000,
+                "max": 7800,
             }
         },
         {
@@ -171,6 +239,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "lhz_dun03",
             "name": "Sniper Cecil (Bio 3)",
             "respawn": {
+                "min": 6000,
+                "max": 7800,
+            },
+            "respawnOld": {
                 "min": 6000,
                 "max": 7800,
             }
@@ -182,6 +254,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 6000,
                 "max": 7800,
+            },
+            "respawnOld": {
+                "min": 6000,
+                "max": 7800,
             }
         },
         {
@@ -189,6 +265,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "bra_dun02",
             "name": "Boitata",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -198,6 +278,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "gld_dun04",
             "name": "Dark Lord",
             "respawn": {
+                "min": 28800,
+                "max": 29400,
+            },
+            "respawnOld": {
                 "min": 28800,
                 "max": 29400,
             }
@@ -209,6 +293,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 3600,
                 "max": 4200,
+            },
+            "respawnOld": {
+                "min": 3600,
+                "max": 4200,
             }
         },
         {
@@ -216,6 +304,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "abyss_03",
             "name": "Detale",
             "respawn": {
+                "min": 10800,
+                "max": 11400,
+            },
+            "respawnOld": {
                 "min": 10800,
                 "max": 11400,
             }
@@ -227,6 +319,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 7200,
                 "max": 10800,
+            },
+            "respawnOld": {
+                "min": 7200,
+                "max": 10800,
             }
         },
         {
@@ -236,6 +332,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 3600,
                 "max": 5400,
+            },
+            "respawnOld": {
+                "min": 3600,
+                "max": 5400,
             }
         },
         {
@@ -243,6 +343,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "gef_dun02",
             "name": "Doppelganger",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -254,6 +358,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 28800,
                 "max": 29400,
+            },
+            "respawnOld": {
+                "min": 28800,
+                "max": 29400,
             }
         },*/
         {
@@ -263,6 +371,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 3600,
                 "max": 4200,
+            },
+            "respawnOld": {
+                "min": 3600,
+                "max": 4200,
             }
         },
         {
@@ -270,6 +382,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "treasure02",
             "name": "Drake",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -281,6 +397,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 28800,
                 "max": 29400,
+            },
+            "respawnOld": {
+                "min": 28800,
+                "max": 29400,
             }
         },*/
         {
@@ -288,6 +408,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "pay_fild11",
             "name": "Eddga",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -297,6 +421,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "lhz_dun02",
             "name": "Egnigem Cenia",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -308,6 +436,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 5640,
                 "max": 6240,
+            },
+            "respawnOld": {
+                "min": 5640,
+                "max": 6240,
             }
         },
         {
@@ -315,6 +447,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "abbey02",
             "name": "Fallen Bishop Hibram",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -324,6 +460,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "xmas_fild01",
             "name": "Garm",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -335,6 +475,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 14400,
                 "max": 21600,
+            },
+            "respawnOld": {
+                "min": 14400,
+                "max": 21600,
             }
         },*/
         {
@@ -342,6 +486,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "pay_fild04",
             "name": "Ghostring",
             "respawn": {
+                "min": 3600,
+                "max": 5400,
+            },
+            "respawnOld": {
                 "min": 3600,
                 "max": 5400,
             }
@@ -353,6 +501,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 6780,
                 "max": 10200,
+            },
+            "respawnOld": {
+                "min": 6780,
+                "max": 10200,
             }
         },
         {
@@ -360,6 +512,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "treasure02",
             "name": "Ghostring",
             "respawn": {
+                "min": 1980,
+                "max": 3180,
+            },
+            "respawnOld": {
                 "min": 1980,
                 "max": 3180,
             }
@@ -371,6 +527,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 18000,
                 "max": 18600,
+            },
+            "respawnOld": {
+                "min": 18000,
+                "max": 18600,
             }
         },
         {
@@ -380,6 +540,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 3600,
                 "max": 4200,
+            },
+            "respawnOld": {
+                "min": 3600,
+                "max": 4200,
             }
         },
         {
@@ -387,6 +551,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "mosk_dun03",
             "name": "Gopinich",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -398,6 +566,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 14400,
                 "max": 14460,
+            },
+            "respawnOld": {
+                "min": 14400,
+                "max": 14460,
             }
         },
         {
@@ -405,6 +577,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "thor_v03",
             "name": "Ifrit",
             "respawn": {
+                "min": 39600,
+                "max": 40200,
+            },
+            "respawnOld": {
                 "min": 39600,
                 "max": 40200,
             }
@@ -416,6 +592,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 5460,
                 "max": 6060,
+            },
+            "respawnOld": {
+                "min": 5460,
+                "max": 6060,
             }
         },
         {
@@ -425,6 +605,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 7200,
                 "max": 10800,
+            },
+            "respawnOld": {
+                "min": 7200,
+                "max": 10800,
             }
         },
         {
@@ -432,6 +616,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "iz_dun05",
             "name": "Kraken",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -443,6 +631,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 7200,
                 "max": 7260,
+            },
+            "respawnOld": {
+                "min": 7200,
+                "max": 7260,
             }
         },
         {
@@ -452,6 +644,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 25200,
                 "max": 25800,
+            },
+            "respawnOld": {
+                "min": 25200,
+                "max": 25800,
             }
         },
         {
@@ -459,6 +655,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "dew_dun01",
             "name": "Leak",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -470,6 +670,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 7980,
                 "max": 8040,
+            },
+            "respawnOld": {
+                "min": 7980,
+                "max": 8040,
             }
         },
         {
@@ -477,6 +681,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "anthell02",
             "name": "Maya",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -488,6 +696,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 28800,
                 "max": 29400,
+            },
+            "respawnOld": {
+                "min": 28800,
+                "max": 29400,
             }
         },*/
         {
@@ -495,6 +707,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "anthell01",
             "name": "Maya Purple",
             "respawn": {
+                "min": 7200,
+                "max": 10800,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 10800,
             }
@@ -506,6 +722,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 1200,
                 "max": 1800,
+            },
+            "respawnOld": {
+                "min": 1200,
+                "max": 1800,
             }
         },*/
         {
@@ -513,6 +733,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "mjolnir_04",
             "name": "Mistress",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -524,6 +748,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 3600,
                 "max": 4200,
+            },
+            "respawnOld": {
+                "min": 3600,
+                "max": 4200,
             }
         },
         {
@@ -531,6 +759,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "gef_fild02",
             "name": "Orc Hero",
             "respawn": {
+                "min": 86400,
+                "max": 87000,
+            },
+            "respawnOld": {
                 "min": 86400,
                 "max": 87000,
             }
@@ -542,6 +774,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 3600,
                 "max": 4200,
+            },
+            "respawnOld": {
+                "min": 3600,
+                "max": 4200,
             }
         },
         {
@@ -549,6 +785,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "gef_fild10",
             "name": "Orc Lord",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -560,6 +800,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 3600,
                 "max": 10800,
+            },
+            "respawnOld": {
+                "min": 3600,
+                "max": 10800,
             }
         },
         {
@@ -569,6 +813,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 3600,
                 "max": 4200,
+            },
+            "respawnOld": {
+                "min": 3600,
+                "max": 4200,
             }
         },
         {
@@ -576,6 +824,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "moc_fild17",
             "name": "Phreeoni",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -587,6 +839,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 7200,
                 "max": 7260,
+            },
+            "respawnOld": {
+                "min": 7200,
+                "max": 7260,
             }
         },
         {
@@ -594,6 +850,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "dic_dun03",
             "name": "Gold Queen Scaraba",
             "respawn": {
+                "min": 7200,
+                "max": 7260,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7260,
             }
@@ -605,6 +865,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 7500,
                 "max": 8100,
+            },
+            "respawnOld": {
+                "min": 7500,
+                "max": 8100,
             }
         },
         {
@@ -612,6 +876,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "xmas_dun02",
             "name": "Stormy Knight",
             "respawn": {
+                "min": 3600,
+                "max": 4200,
+            },
+            "respawnOld": {
                 "min": 3600,
                 "max": 4200,
             }
@@ -623,6 +891,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 18000,
                 "max": 18600,
+            },
+            "respawnOld": {
+                "min": 18000,
+                "max": 18600,
             }
         },
         {
@@ -630,6 +902,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "beach_dun2",
             "name": "Tao Gunka (North)",
             "respawn": {
+                "min": 18000,
+                "max": 18600,
+            },
+            "respawnOld": {
                 "min": 18000,
                 "max": 18600,
             }
@@ -641,6 +917,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 18000,
                 "max": 18600,
+            },
+            "respawnOld": {
+                "min": 18000,
+                "max": 18600,
             }
         },
         {
@@ -648,6 +928,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "spl_fild03",
             "name": "Tendrillion",
             "respawn": {
+                "min": 3600,
+                "max": 3660,
+            },
+            "respawnOld": {
                 "min": 3600,
                 "max": 3660,
             }
@@ -659,6 +943,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 7200,
                 "max": 7260,
+            },
+            "respawnOld": {
+                "min": 7200,
+                "max": 7260,
             }
         },
         {
@@ -666,6 +954,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "tur_dun04",
             "name": "Turtle General",
             "respawn": {
+                "min": 3600,
+                "max": 4200,
+            },
+            "respawnOld": {
                 "min": 3600,
                 "max": 4200,
             }
@@ -677,6 +969,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "respawn": {
                 "min": 28800,
                 "max": 50400,
+            },
+            "respawnOld": {
+                "min": 28800,
+                "max": 50400,
             }
         },
         {
@@ -684,6 +980,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "jupe_core",
             "name": "Vesper",
             "respawn": {
+                "min": 6300,
+                "max": 8100,
+            },
+            "respawnOld": {
                 "min": 7200,
                 "max": 7800,
             }
@@ -693,6 +993,10 @@ app.service('DataSrv', function (firebase, $firebaseObject, $firebaseArray) {
             "map": "moc_fild22",
             "name": "Wounded Morroc",
             "respawn": {
+                "min": 43200,
+                "max": 54000,
+            },
+            "respawnOld": {
                 "min": 43200,
                 "max": 54000,
             }
