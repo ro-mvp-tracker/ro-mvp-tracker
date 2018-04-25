@@ -36,6 +36,11 @@ app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProv
         templateUrl: 'views/mvp.html'
     });
 
+    $stateProvider.state('mvpall', {
+        url: '/mvpall',
+        templateUrl: 'views/mvpall.html'
+    });
+
     $stateProvider.state('share', {
         url: '/share',
         templateUrl: 'views/share.html'

@@ -29,10 +29,13 @@
                         <a ui-sref="mvp">MVP</a>
                     </li>
                     <li ui-sref-active="active">
+                        <a ui-sref="mvpall">MVP Times</a>
+                    </li>
+                    <li ui-sref-active="active">
                         <a ui-sref="share">Share</a>
                     </li>
                 </ul>
-                <span class="navbar-element dn-flip-x" ng-if="$state.is('mvp') || $state.is('share')">
+                <span class="navbar-element dn-flip-x" ng-if="$state.is('mvp') || $state.is('mvpall') || $state.is('share')">
                     <span class="dropdown-settings" is-open="settingsDropdown.open" uib-dropdown>
                         <a href="javascript:void(0);" id="dropdownMenu1" uib-dropdown-toggle>
                             <span class="fas fa-sliders-h"></span>
@@ -45,7 +48,7 @@
                         </ul>
                     </span>
                 </span>
-                <span class="navbar-element dn-flip-x" ng-if="($state.is('mvp') || $state.is('share')) && login.userData.activated">
+                <span class="navbar-element dn-flip-x" ng-if="($state.is('mvp') || $state.is('mvpall') || $state.is('share')) && login.userData.activated">
                     <span class="dropdown-users" is-open="usersDropdown.open" uib-dropdown ng-controller="UsersCtrl">
                         <a href="javascript:void(0);" id="dropdownMenu2" class="fa-layers fa-fw" uib-dropdown-toggle>
                             <span class="fas fa-users"></span>
@@ -133,6 +136,7 @@
     <script src="scripts/controllers/share.js"></script>
     <script src="scripts/filters/toarray.js"></script>
     <script src="scripts/directives/includereplace.js"></script>
+    <script src="scripts/controllers/mvpall.js"></script>
     <!-- endbuild -->
 </body>
 </html>

@@ -5,7 +5,7 @@ describe('Directive: includeReplace', function () {
   // load the directive's module
   beforeEach(module('roMvpTrackerApp'));
 
-  var element,
+  var 
     scope;
 
   beforeEach(inject(function ($rootScope) {
