@@ -1,0 +1,116 @@
+<div class="mvp-details">
+    <div class="head">{{selectedMvp.name}} <small>#{{selectedMvp.id}}</small></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                <center><img src="https://panel.talonro.com/images/monster/{{selectedMvp.id}}.gif"></center>
+            </div>
+            <div class="col-sm-5">
+                <table>
+                    <thead>
+                        <tr>
+                            <td colspan="2">Info</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>HP</span></td>
+                            <td>{{selectedMvp.stats.hp | number}}</td>
+                        </tr>
+                        <tr>
+                            <td>Race</td>
+                            <td>{{selectedMvp.stats.race}}</td>
+                        </tr>
+                        <tr>
+                            <td>Property</td>
+                            <td>{{selectedMvp.stats.property}}</td>
+                        </tr>
+                        <tr>
+                            <td>Size</td>
+                            <td>{{selectedMvp.stats.size}}</td>
+                        </tr>
+                        <tr>
+                            <td>Hit</td>
+                            <td>{{selectedMvp.stats.hit}}</td>
+                        </tr>
+                        <tr>
+                            <td>Flee</td>
+                            <td>{{selectedMvp.stats.flee}}</td>
+                        </tr>
+                        <tr>
+                            <td>DEF</td>
+                            <td>{{selectedMvp.stats.def}}</td>
+                        </tr>
+                        <tr>
+                            <td>MDEF</td>
+                            <td>{{selectedMvp.stats.mdef}}</td>
+                        </tr>
+                        <tr>
+                            <td>Base EXP</td>
+                            <td>{{selectedMvp.stats.xp.base | number}}</td>
+                        </tr>
+                        <tr>
+                            <td>Job EXP</td>
+                            <td>{{selectedMvp.stats.xp.job | number}}</td>
+                        </tr>
+                        <tr>
+                            <td>MVP EXP</td>
+                            <td>{{selectedMvp.stats.xp.mvp | number}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-5">
+                <table>
+                    <thead>
+                        <tr>
+                            <td colspan="2">Elements</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span>Neutral</span></td>
+                            <td>{{selectedMvp.stats.elements.Neutral * 100}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Water</td>
+                            <td>{{selectedMvp.stats.elements.Water * 100}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Earth</td>
+                            <td>{{selectedMvp.stats.elements.Earth * 100}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Fire</td>
+                            <td>{{selectedMvp.stats.elements.Fire * 100}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Wind</td>
+                            <td>{{selectedMvp.stats.elements.Wind * 100}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Poison</td>
+                            <td>{{selectedMvp.stats.elements.Poison * 100}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Holy</td>
+                            <td>{{selectedMvp.stats.elements.Holy * 100}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Shadow</td>
+                            <td>{{selectedMvp.stats.elements.Shadow * 100}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Ghost</td>
+                            <td>{{selectedMvp.stats.elements.Ghost * 100}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Undead</td>
+                            <td>{{selectedMvp.stats.elements.Undead * 100}}%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

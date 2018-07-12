@@ -9,7 +9,7 @@
  * # MvpCtrl
  * Controller of the roMvpTrackerApp
  */
-app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSrv, webNotification, time) {
+app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, $uibModal, $document, DataSrv, webNotification, time) {
     var t;
     var unbind;
 
@@ -165,6 +165,33 @@ app.controller('MvpCtrl', function ($scope, $rootScope, $timeout, $state, DataSr
 
     $scope.isValid = function() {
         return $scope.login.authenticated && $scope.login.userData.activated && $scope.login.userData.username && $scope.settings.group;
+    };
+
+    $scope.openMVPDetails = function (mvp) {
+        $rootScope.selectedMvp = mvp;
+        var parentElem = angular.element($document[0].querySelector('#mvp'));
+        var modalInstance = $uibModal.open({
+            //animation: $ctrl.animationsEnabled,
+            //ariaLabelledBy: 'modal-title',
+            //ariaDescribedBy: 'modal-body',
+            templateUrl: 'views/mvp-details.html',
+            //controller: 'ModalInstanceCtrl',
+            //controllerAs: '$ctrl',
+            size: 'lg',
+            appendTo: parentElem,
+            resolve: {
+                items: function () {
+                    //return $ctrl.items;
+                }
+            }
+        });
+
+        modalInstance.result
+            .then(function() {
+                //
+            }, function () {
+                //
+            });
     };
 
     $scope.update = function() {

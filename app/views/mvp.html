@@ -1,4 +1,4 @@
-<div ng-controller="MvpCtrl" ng-ifs="initialized">
+<div id="mvp" ng-controller="MvpCtrl" ng-ifs="initialized">
     <div ng-if="login.authenticated">
         <div class="alert alert-danger animate-out-hide animated fadeIn" ng-if="!login.userData.activated">
             <strong>Authentication Error!</strong> Your account is waiting for activation by a moderator.
@@ -31,6 +31,7 @@
                 <tr ng-repeat="mvp in (mvpList | filter:mvpFilter | orderBy:orderTrackList)" ng-class="mvp.$track.$highlight">
                     <td>
                         <div>
+                            <a href="" ng-click="openMVPDetails(mvp)"><i class="fas fa-info-circle"></i></a>
                             <span class="mvp-name"><a href="https://panel.talonro.com/mobdb/{{mvp.id}}/" target="_blank">{{mvp.name}}</a></span>
                             <small>(<a href="http://ratemyserver.net/index.php?page=npc_shop_warp&map={{mvp.map}}" target="_blank">{{mvp.map}}</a>)</small>
                         </div>
